@@ -1108,6 +1108,19 @@
 <figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line">$ git merge b2</span><br><span class="line">Auto-merging readme.txt</span><br><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> readme.txt</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span><br><span class="line">$ cat readme.txt</span><br><span class="line">Hello ,this is the first text.</span><br><span class="line">Hello ,this is the second text.</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">Hello ,this is the third text.</span><br><span class="line">=======</span><br><span class="line">thi is the b2 branch</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; b2</span><br></pre></td></tr></tbody></table></figure>
 
 <p>你想好保留哪个版本的只要回退一个版本再合并一次就好了。</p>
+<h2 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h2><p> Git 的原生环境是终端。 在那里，你可以体验到最新的功能，也只有在那里，你才能尽情发挥 Git 的全部能 </p>
+<p>力。 但是对于某些任务而言，纯文本并不是最佳的选择；有时候你确实需要一个可视化的展示方式，而且有些</p>
+<p>用户更习惯那种能点击的界面。</p>
+<p>git-gui是在安装git的同时也会装好的可视化工具。默认界面为英文，我这里参考这里修改成了中文。</p>
+<p><a href="https://www.cnblogs.com/webSong/p/11009403.html" target="_blank" rel="noopener">https://www.cnblogs.com/webSong/p/11009403.html</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://ftp.bmp.ovh/imgs/2019/12/160907a99263230f.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h2 id="错误收集"><a href="#错误收集" class="headerlink" title="错误收集"></a>错误收集</h2><p><strong>1.报错<code>fatal: remote origin already exists.</code></strong></p>
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></tbody></table></figure>
 
