@@ -36,6 +36,27 @@
   </entry>
   
   <entry>
+    <title>Java邮件发送</title>
+    <link href="https://vijar-wang.github.io/blog/posts/99746608/"/>
+    <id>https://vijar-wang.github.io/blog/posts/99746608/</id>
+    <published>2019-12-09T08:07:05.000Z</published>
+    <updated>2019-12-09T13:21:10.307Z</updated>
+    
+    <content type="html"><![CDATA[<center>用JAVA来发送邮件吧</center><a id="more"></a><h1 id="邮件发送"><a href="#邮件发送" class="headerlink" title="邮件发送"></a>邮件发送</h1><p>使用Java应用程序发送 E-mail 十分简单，但是你首先得下载javaMail API</p><ul><li><a href="http://static.runoob.com/download/mail.jar" target="_blank" rel="noopener">JavaMail mail.jar 1.4.5</a></li></ul><p>下载这个jar包加入到项目中去，本例中是以163邮箱发送邮件的。然后直接上代码：</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.mail.Message;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Session;</span><br><span class="line"><span class="keyword">import</span> javax.mail.Transport;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.InternetAddress;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.MimeMessage;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.MimeMessage.RecipientType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailUtils</span> </span>{</span><br><span class="line">    <span class="comment">//邮件服务器</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String smtp_host = <span class="string">"smtp.163.com"</span>;</span><br><span class="line">    <span class="comment">//用户名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String username = <span class="string">"xxxx@163.com"</span>;</span><br><span class="line">    <span class="comment">//授权码</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String password = <span class="string">"xxxx"</span>;</span><br><span class="line">    <span class="comment">//发件人信箱</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String from = <span class="string">"xxxx@163.com"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sendMail</span><span class="params">(String subject, String content, String to)</span> </span>{</span><br><span class="line"></span><br><span class="line">        Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">        props.setProperty(<span class="string">"mail.smtp.host"</span>, smtp_host); <span class="comment">//邮件服务器</span></span><br><span class="line">        props.setProperty(<span class="string">"mail.transport.protocol"</span>, <span class="string">"smtp"</span>); <span class="comment">//协议</span></span><br><span class="line">        props.setProperty(<span class="string">"mail.smtp.auth"</span>, <span class="string">"true"</span>); <span class="comment">//身份验证</span></span><br><span class="line"></span><br><span class="line">        Session session = Session.getInstance(props);  <span class="comment">//获取session对象</span></span><br><span class="line"></span><br><span class="line">        Message message = <span class="keyword">new</span> MimeMessage(session);</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            message.setFrom(<span class="keyword">new</span> InternetAddress(from)); <span class="comment">//// Set From: 发件人地址</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// Set To: 加载收件人地址</span></span><br><span class="line">            message.setRecipient(RecipientType.TO, <span class="keyword">new</span> InternetAddress(to));</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Set Subject: 加载标题</span></span><br><span class="line">            message.setSubject(subject);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 发送的内容，可以插入html标签</span></span><br><span class="line">            message.setContent(<span class="string">"&lt;h2&gt;"</span>+subject+<span class="string">"&lt;/h2&gt;&lt;br&gt;&lt;p&gt;"</span>+content+<span class="string">"&lt;/p&gt;"</span>, <span class="string">"text/html;charset=utf-8"</span>);</span><br><span class="line"></span><br><span class="line">            Transport transport = session.getTransport(); <span class="comment">//连接邮件服务器</span></span><br><span class="line">            transport.connect(smtp_host, username, password); <span class="comment">//发送邮件</span></span><br><span class="line">            transport.sendMessage(message, message.getAllRecipients());</span><br><span class="line">        } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"邮件发送失败..."</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">sendMail(<span class="string">"测试邮件"</span>, <span class="string">"这是一封测试邮件"</span>, <span class="string">"1419908068@qq.com"</span>);</span><br><span class="line">}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>注意授权码是一个独立的密码，不是你登录的密码。</p><p>收到的邮件：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://mouxiao/Figurebed/img/20191209211728.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h1 id="授权码开启"><a href="#授权码开启" class="headerlink" title="授权码开启"></a>授权码开启</h1><p>每个邮箱的授权码需要单独开启，并且还需要开启POP3/SMTP/IMAP服务，各个邮箱开启步骤如下：</p><h2 id="网易163邮箱"><a href="#网易163邮箱" class="headerlink" title="网易163邮箱"></a>网易163邮箱</h2><p>登录后点击<strong>设置 –&gt; POP3/SMTP/IMAP</strong></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/img/QQ截图20191209205636.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>分别勾选图中箭头所指选项：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/img/20191209210310.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>点击右侧菜单中的客户端授权密码，然后再点击开启，安装提示信息发送完短信就可以设置授权码了：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://mouxiao/Figurebed/img/20191209211248.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://mouxiao/Figurebed/img/20191209211444.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h2 id="QQ邮箱"><a href="#QQ邮箱" class="headerlink" title="QQ邮箱"></a>QQ邮箱</h2><p>登录邮箱后点击<strong>设置–&gt;账户</strong>，往下翻找到这个地方：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://mouxiao/Figurebed/img/20191209211728.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>像图中这样把<code>POP3/SMTP服务，IMAP/SMTP服务</code>开启，然后生成授权码就好了</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt;用JAVA来发送邮件吧&lt;/center&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="-Java -学习" scheme="https://vijar-wang.github.io/blog/tags/Java-%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue-Cli中使用axios以及跨域问题</title>
     <link href="https://vijar-wang.github.io/blog/posts/3038f3bf/"/>
     <id>https://vijar-wang.github.io/blog/posts/3038f3bf/</id>
@@ -102,9 +123,9 @@
     
     
     
-      <category term="Windows" scheme="https://vijar-wang.github.io/blog/tags/Windows/"/>
-    
       <category term="游戏" scheme="https://vijar-wang.github.io/blog/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="Windows" scheme="https://vijar-wang.github.io/blog/tags/Windows/"/>
     
   </entry>
   
@@ -154,9 +175,9 @@
       <category term="工具" scheme="https://vijar-wang.github.io/blog/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="工具" scheme="https://vijar-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="Windows" scheme="https://vijar-wang.github.io/blog/tags/Windows/"/>
+    
+      <category term="工具" scheme="https://vijar-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -181,9 +202,9 @@
       <category term="git" scheme="https://vijar-wang.github.io/blog/categories/%E5%AD%A6%E4%B9%A0/git/"/>
     
     
-      <category term="学习" scheme="https://vijar-wang.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="Windows" scheme="https://vijar-wang.github.io/blog/tags/Windows/"/>
+    
+      <category term="学习" scheme="https://vijar-wang.github.io/blog/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -229,9 +250,9 @@
       <category term="工具" scheme="https://vijar-wang.github.io/blog/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="工具" scheme="https://vijar-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="Windows" scheme="https://vijar-wang.github.io/blog/tags/Windows/"/>
+    
+      <category term="工具" scheme="https://vijar-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -254,9 +275,9 @@
       <category term="Windows" scheme="https://vijar-wang.github.io/blog/categories/Windows/"/>
     
     
-      <category term="工具" scheme="https://vijar-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="Windows" scheme="https://vijar-wang.github.io/blog/tags/Windows/"/>
+    
+      <category term="工具" scheme="https://vijar-wang.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
