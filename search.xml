@@ -72,7 +72,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://mouxiao/Figurebed/img/20191209211728.png" alt="" title="">
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191209211728.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -82,7 +82,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/img/QQ截图20191209205636.png" alt="" title="">
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/QQ截图20191209205636.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -91,7 +91,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/img/20191209210310.png" alt="" title="">
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191209210310.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -100,7 +100,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://mouxiao/Figurebed/img/20191209211248.png" alt="" title="">
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191209211248.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -108,22 +108,20 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://mouxiao/Figurebed/img/20191209211444.png" alt="" title="">
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191209211444.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
 
 <h2 id="QQ邮箱"><a href="#QQ邮箱" class="headerlink" title="QQ邮箱"></a>QQ邮箱</h2><p>登录邮箱后点击<strong>设置–&gt;账户</strong>，往下翻找到这个地方：</p>
+<p>像图中这样把<code>POP3/SMTP服务，IMAP/SMTP服务</code>开启，然后生成授权码就好了</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://mouxiao/Figurebed/img/20191209211728.png" alt="" title="">
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191209211927.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure>
-
-<p>像图中这样把<code>POP3/SMTP服务，IMAP/SMTP服务</code>开启，然后生成授权码就好了</p>
-<script>
+            </figure><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
