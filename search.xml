@@ -55,6 +55,137 @@
       </script>]]></content>
   </entry>
   <entry>
+    <title>Vue中localstorage和sessionstorage的使用</title>
+    <url>/blog/posts/10dd2acd/</url>
+    <content><![CDATA[<center>Vue中使用LocalStorage和SessionStorage</center>
+
+<a id="more"></a>
+
+<h1 id="LocalStorage和SessionStorage"><a href="#LocalStorage和SessionStorage" class="headerlink" title="LocalStorage和SessionStorage"></a>LocalStorage和SessionStorage</h1><p>在使用之前，我们先废话的了解一下LocalStorage和SessionStorage</p>
+<p>1.sessionStorage(临时存储)：为没一个数据维持一个存储区域，浏览器打开会创建，关闭浏览器就会消失。</p>
+<p>2.localStorage(长期存储)：和前者一样，区别在于浏览器关闭后数据依然存在。</p>
+<p>因为两者差不多，所以我已localStorage为例</p>
+<h1 id="localStorage使用方法"><a href="#localStorage使用方法" class="headerlink" title="localStorage使用方法"></a>localStorage使用方法</h1><p><strong>保存</strong></p>
+<p>保存到localStorage，如果保存的是个对象，那么需要把数据转换为JSON格式，字符则不需要</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/*保存*/</span></span><br><span class="line"><span class="comment">/*对象*/</span></span><br><span class="line"><span class="keyword">var</span> user = {</span><br><span class="line">	name : <span class="string">'admin'</span>,</span><br><span class="line">	password: <span class="string">'password'</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">/*字符*/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'hello'</span>;</span><br><span class="line"></span><br><span class="line">localStorage.setItem(<span class="string">"user"</span>,<span class="built_in">JSON</span>.stringify(user)); <span class="comment">//需要先转换为JSON</span></span><br><span class="line"></span><br><span class="line">localStorage.setItem(<span class="string">"hello"</span>,<span class="built_in">JSON</span>.stringify(str));</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>获取</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/*对象*/</span></span><br><span class="line"><span class="keyword">var</span> user = localStorage.getItem(<span class="string">"user"</span>); <span class="comment">//现在user是一个字符串</span></span><br><span class="line"><span class="comment">//如果需要读取user中对象则需要把user转换为一个对象</span></span><br><span class="line">user = <span class="built_in">JSON</span>.parse(user);</span><br><span class="line">name = user.name</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>删除</strong></p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/*指定删除*/</span></span><br><span class="line">localStorage.remove(<span class="string">"user"</span>);</span><br><span class="line"><span class="comment">/*全部删除*/</span></span><br><span class="line">localStorage.clear();</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>浏览器查看</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/ViJar-Wang/Figurebed/blob/master/img/20191210193350.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="Vue中实现用例"><a href="#Vue中实现用例" class="headerlink" title="Vue中实现用例"></a>Vue中实现用例</h1><p>本例中以登录为例，使用了Element-UI。</p>
+<p>首先创建一个登录页面：</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">el-form</span> <span class="attr">ref</span>=<span class="string">"form"</span> <span class="attr">:model</span>=<span class="string">"form"</span> <span class="attr">label-width</span>=<span class="string">"80px"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"姓名:"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"密码:"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"form.pwd"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"login()"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="actionscript">		name: <span class="string">'HelloWorld'</span>,</span></span><br><span class="line">		data() {</span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> {</span></span><br><span class="line">				form: {</span><br><span class="line"><span class="actionscript">					name: <span class="string">""</span>,</span></span><br><span class="line"><span class="actionscript">					pwd: <span class="string">""</span></span></span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		},</span><br><span class="line">		methods: {</span><br><span class="line">			login() {</span><br><span class="line"><span class="actionscript">				<span class="keyword">if</span> ((<span class="keyword">this</span>.form.name == <span class="string">"admin"</span>) &amp;&amp; (<span class="keyword">this</span>.form.pwd == <span class="string">"123"</span>)) {</span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> user = <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.form);</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">this</span>.$message({</span></span><br><span class="line"><span class="actionscript">						message: <span class="string">'恭喜你，登录成功！'</span>,</span></span><br><span class="line"><span class="actionscript">						type: <span class="string">'success'</span></span></span><br><span class="line">					});</span><br><span class="line"><span class="actionscript">					localStorage.setItem(<span class="string">"user"</span>, user);</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">this</span>.$router.push({</span></span><br><span class="line"><span class="actionscript">						path: <span class="string">'/index'</span></span></span><br><span class="line">					})</span><br><span class="line"><span class="actionscript">				} <span class="keyword">else</span> {</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">this</span>.$message(<span class="string">"用户名或密码错误！"</span>);</span></span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span></span><br><span class="line"><span class="css">	<span class="selector-class">.hello</span> {</span></span><br><span class="line">		width: 50%;</span><br><span class="line">		margin: 0 auto;</span><br><span class="line">	}</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后是登录成功之后的页面：</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">el-row</span> <span class="attr">v-if</span>=<span class="string">"name!=''"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"3"</span>&gt;</span>欢迎您：<span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"4"</span>&gt;</span>{{name}}!<span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"loginout()"</span>&gt;</span>注销<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">el-row</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"3"</span>&gt;</span>您还未登录！<span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="actionscript">		name: <span class="string">'HelloWorld'</span>,</span></span><br><span class="line">		data() {</span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> {</span></span><br><span class="line"><span class="actionscript">				msg: <span class="string">""</span>,</span></span><br><span class="line"><span class="actionscript">				name: <span class="string">""</span></span></span><br><span class="line">			}</span><br><span class="line">		},</span><br><span class="line">		created() {</span><br><span class="line"><span class="actionscript">			<span class="keyword">this</span>.checkLogin()</span></span><br><span class="line">		},</span><br><span class="line">		methods: {</span><br><span class="line">			checkLogin() {</span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> user = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">"user"</span>));</span></span><br><span class="line">				if (user) {</span><br><span class="line"><span class="actionscript">					<span class="keyword">this</span>.name = user.name</span></span><br><span class="line">				}</span><br><span class="line">			},</span><br><span class="line">			loginout() {</span><br><span class="line"><span class="actionscript">				localStorage.removeItem(<span class="string">"user"</span>)</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">this</span>.$message({</span></span><br><span class="line"><span class="actionscript">					message: <span class="string">'注销成功！'</span>,</span></span><br><span class="line"><span class="actionscript">					type: <span class="string">'success'</span></span></span><br><span class="line">				});</span><br><span class="line"><span class="actionscript">				<span class="keyword">this</span>.$router.push({</span></span><br><span class="line"><span class="actionscript">					path: <span class="string">"/"</span></span></span><br><span class="line">				})</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">	<span class="selector-class">.el-col</span> {</span></span><br><span class="line">		font-size: 20px;</span><br><span class="line">	}</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>配置路由：</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="keyword">import</span> HelloWorld <span class="keyword">from</span> <span class="string">'@/components/HelloWorld'</span></span><br><span class="line"><span class="keyword">import</span> index <span class="keyword">from</span> <span class="string">'@/components/index'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router({</span><br><span class="line">	mode: <span class="string">"history"</span>,</span><br><span class="line">	routes: [{</span><br><span class="line">			path: <span class="string">"/index"</span>,</span><br><span class="line">			name: <span class="string">"index"</span>,</span><br><span class="line">			component: index</span><br><span class="line">		},</span><br><span class="line">		{</span><br><span class="line">			path: <span class="string">'/'</span>,</span><br><span class="line">			name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">			component: HelloWorld,</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line">	]</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>展示</p>
+<p>登录页面</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191210194330.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>登录成功后</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191210194539.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>学习</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue问题记录</title>
+    <url>/blog/posts/60aedc63/</url>
+    <content><![CDATA[<center>出问题？来看一下吧</center>
+
+<a id="more"></a>
+
+<p>前面用使用vue出现了很多问题，一直没有记录，现在就最近再次遇到的问题记录一下。</p>
+<p>版本：Vue 2.X    工具：Hbuilder X</p>
+<h1 id="打包后页面无法加载"><a href="#打包后页面无法加载" class="headerlink" title="打包后页面无法加载"></a>打包后页面无法加载</h1><p>我这里打包后是放到tomcat服务器下运行的，但是运行的时候因为有些配置有问题，导致所有页面都加载不了。主要还是加载路径的问题，解决方法：</p>
+<p><code>build</code>目录的<code>utils.js</code>文件,一般在<strong>47</strong>行左右。添加<code>publicPath:'../../'</code></p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (options.extract) {</span><br><span class="line">  <span class="keyword">return</span> ExtractTextPlugin.extract({</span><br><span class="line">    use: loaders,</span><br><span class="line">    fallback: <span class="string">'vue-style-loader'</span>,</span><br><span class="line">publicPath:<span class="string">'../../'</span>,</span><br><span class="line">  })</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">  <span class="keyword">return</span> [<span class="string">'vue-style-loader'</span>].concat(loaders)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>config</code>目录的<code>index.js</code>文件,一般是在<strong>46</strong>行的<code>assetsPublicPath</code>,修改为：</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">assetsPublicPath: <span class="string">'/pc/'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>pc</strong>就是你放在Tomcat服务器下的工程名</p>
+<h1 id="手动刷新页面css样式错误问题"><a href="#手动刷新页面css样式错误问题" class="headerlink" title="手动刷新页面css样式错误问题"></a>手动刷新页面css样式错误问题</h1><p>运行项目时有时候点击浏览器的刷新或者F5刷新后css样式就会全部乱掉，这个问题解决方法是把css全部放进main.js中导入，就像这样：</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"../static/css/bootstrap.min.css"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"../static/css/essentials.css"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"../static/css/layout.css"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"../static/css/header-1.css"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"../static/css/layout-shop.css"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"../static/css/color_scheme/orange.css"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>注意路径问题。如果有路径错误项目就会运行不成功，仔细看看错误信息排查就好了。</p>
+<h1 id="URL路径-号问题"><a href="#URL路径-号问题" class="headerlink" title="URL路径#号问题"></a>URL路径#号问题</h1><p>vue-router默认hash模式，如果不想要很丑的hash，我们可以用路由的<code>history</code>模式。修改router下的<code>index.js</code>文件：</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter({</span><br><span class="line">  mode: <span class="string">'history'</span>,</span><br><span class="line">  routes: [...]</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>学习</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java邮件发送</title>
     <url>/blog/posts/99746608/</url>
     <content><![CDATA[<center>用JAVA来发送邮件吧</center>
@@ -199,10 +330,12 @@
           });
       </script>]]></content>
       <categories>
-        <category>-学习 -Vue&#39;</category>
+        <category>学习</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>-Vue -学习&#39;</tag>
+        <tag>学习</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -562,8 +695,8 @@
           });
       </script>]]></content>
       <tags>
-        <tag>游戏</tag>
         <tag>Windows</tag>
+        <tag>游戏</tag>
       </tags>
   </entry>
   <entry>
@@ -781,8 +914,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
         <tag>工具</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1252,8 +1385,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
         <tag>学习</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1531,8 +1664,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
         <tag>工具</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1624,8 +1757,8 @@
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
         <tag>工具</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
 </search>
