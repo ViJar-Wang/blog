@@ -6,7 +6,7 @@
     
     
     
-    <title>MySQL语句学习 | ℳr. Wang | 四捌</title>
+    <title>SQL学习 | ℳr. Wang | 四捌</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
@@ -39,15 +39,15 @@
 
 
 
-    <meta name="description" content="MySQL数据库">
+    <meta name="description" content="（Structured Query Language）结构化查询语言">
 <meta name="keywords" content="学习,MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL语句学习">
+<meta property="og:title" content="SQL学习">
 <meta property="og:url" content="https:&#x2F;&#x2F;vijar-wang.github.io&#x2F;blog&#x2F;posts&#x2F;6df95fa5&#x2F;index.html">
 <meta property="og:site_name" content="ℳr. Wang">
-<meta property="og:description" content="MySQL数据库">
+<meta property="og:description" content="（Structured Query Language）结构化查询语言">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-25T11:29:38.918Z">
+<meta property="og:updated_time" content="2019-12-25T13:08:36.399Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" type="application/atom+xml" title="ℳr. Wang" href="/blog/atom.xml">
@@ -149,7 +149,7 @@
         <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">MySQL语句学习</div>
+        <div class="flex-col header-title ellipsis">SQL学习</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -186,11 +186,18 @@
 
 <div class="container body-wrap">
     
-<article id="post-mysqlStudy"
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">SQL简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL语法"><span class="post-toc-number">2.</span> <span class="post-toc-text">SQL语法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL学习"><span class="post-toc-number">3.</span> <span class="post-toc-text">SQL学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-SELECT"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">SQL SELECT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-SELECT-DISTINCT"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">SQL SELECT DISTINCT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-where"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">SQL where</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-and-amp-or"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">SQL and &amp; or</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-order-by"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">SQL order by</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-insert-into"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">SQL insert into</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-update"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">SQL update</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-delete"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">SQL delete</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL-top（MySQL-limit）"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">SQL top（MySQL limit）</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-sqlStudy"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">MySQL语句学习</h1>
+        <h1 class="post-card-title">SQL学习</h1>
         <div class="post-meta">
 					
             <i class="icon icon-lg icon-calendar-o"></i>
@@ -214,12 +221,197 @@
         </div>
         <div class="post-count-custom">
             <i class="icon icon-lg icon-comment-o"></i>
-            阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
+            阅读本文可能花费您&nbsp;<span class="post-count">6</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <center>MySQL数据库</center>
+            <center>（Structured Query Language）结构化查询语言</center>
 
 <a id="more"></a>
+
+<h1 id="SQL简介"><a href="#SQL简介" class="headerlink" title="SQL简介"></a>SQL简介</h1><p><strong>什么是sql？</strong></p>
+<ul>
+<li>SQL 指结构化查询语言</li>
+<li>SQL 使我们有能力访问数据库</li>
+<li>SQL 是一种 ANSI 的标准计算机语言</li>
+</ul>
+<p><strong>SQL能做什么</strong></p>
+<ul>
+<li>SQL 面向数据库执行查询</li>
+<li>SQL可从数据库取回数据</li>
+<li>可以在数据库中插入新的记录</li>
+<li>可以更新数据库中的数据</li>
+<li>可以从数据库中删除数据</li>
+<li>可以创建新数据库</li>
+<li>可以创建表</li>
+<li>可以创建储存过程</li>
+<li>可以创建视图</li>
+<li>可以设置表、存储过程、和视图的权限</li>
+</ul>
+<p>SQL是一门ANSI的标准计算机语言，可以和数据库程序协同工作，比如DB2、MS SQL Server、MySQL、Oracle、Sybase等数据库系统。</p>
+<p><strong>RDBMS</strong></p>
+<p>关系型数据库管理系统</p>
+<p>RDBMS是SQL的基础，</p>
+<h1 id="SQL语法"><a href="#SQL语法" class="headerlink" title="SQL语法"></a>SQL语法</h1><p><strong>注意</strong></p>
+<p>SQL对大小写不敏感。</p>
+<p>MS Access和sql server 2000，不需要在每条语句后面加分号，不过有些数据库必须使用分号。</p>
+<p><strong>SQL的DML和DDL</strong></p>
+<p>SQL分为两个部分：</p>
+<p><strong>数据操作语言（DML）</strong></p>
+<ul>
+<li>SELECT 从数据库表中获取数据</li>
+<li>update 更新数据库表中数据</li>
+<li>delete 删除数据表中数据</li>
+<li>insert into 向数据库表中插入数据</li>
+</ul>
+<p><strong>数据定义语言（DDL）</strong></p>
+<ul>
+<li><p>create database 创建新的数据库</p>
+</li>
+<li><p>alert database 修改数据库</p>
+</li>
+<li><p>create table 创建数据表</p>
+</li>
+<li><p>alter table 修改数据表</p>
+</li>
+<li><p>drop table 删除表</p>
+</li>
+<li><p>create index 创建索引</p>
+</li>
+<li><p>drop index 删除索引</p>
+</li>
+</ul>
+<h1 id="SQL学习"><a href="#SQL学习" class="headerlink" title="SQL学习"></a>SQL学习</h1><p>学习可以使用<a href="https://www.liaoxuefeng.com/wiki/1177760294764384/1179611432985088" target="_blank" rel="noopener">在线SQL功能</a></p>
+<p>我所使用的数据库为MySQL 5.7，数据库管理工具是Navcat Premium，可以自行去官网下载。</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`persons`</span>  (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">0</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`firstname`</span> <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">  <span class="string">`lastname`</span> <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">  <span class="string">`adress`</span> <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">  <span class="string">`sex`</span> <span class="built_in">varchar</span>(<span class="number">2</span>),</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`persons`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'Adans'</span>, <span class="string">'John'</span>, <span class="string">'中国湖南'</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`persons`</span> <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'李'</span>, <span class="string">'四'</span>, <span class="string">'中国上海'</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`persons`</span> <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">'欧'</span>, <span class="string">'尼酱'</span>, <span class="string">'中国湖南'</span>, <span class="string">'女'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>练习使用的表结构和数据如上。</p>
+<h2 id="SQL-SELECT"><a href="#SQL-SELECT" class="headerlink" title="SQL SELECT"></a>SQL SELECT</h2><p><strong>语法</strong></p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 列名 <span class="keyword">from</span> 表名</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其中<code>列名</code>可以用<code>*</code>表示，<code>*</code>表示查询所有疾苦</p>
+<p><strong>实例</strong></p>
+<p>有如下表：</p>
+<p>1    Adans    John    中国湖南    男<br>2    李    四    中国上海    男<br>3    欧    尼酱    中国湖南    女</p>
+<p>查询firstname列和lastname数据，</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select firstname,lastname from persons;</span><br><span class="line">+-----------+----------+</span><br><span class="line">| firstname | lastname |</span><br><span class="line">+-----------+----------+</span><br><span class="line">| Adans     | John     |</span><br><span class="line">| 李        | 四       |</span><br><span class="line">| 欧        | 尼酱     |</span><br><span class="line">+-----------+----------+</span><br><span class="line"><span class="number">3</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0</span>.<span class="number">00</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="SQL-SELECT-DISTINCT"><a href="#SQL-SELECT-DISTINCT" class="headerlink" title="SQL SELECT DISTINCT"></a>SQL SELECT DISTINCT</h2><p>关键词<code>distinct</code>用于返回唯一不同的值。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECR distinct 列名 from 表名</span><br></pre></td></tr></tbody></table></figure>
+
+<p>查询adress列</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select adress from persons;</span><br><span class="line">+--------------+</span><br><span class="line">| adress       |</span><br><span class="line">+--------------+</span><br><span class="line">| 中国湖南     |</span><br><span class="line">| 中国上海     |</span><br><span class="line">| 中国湖南     |</span><br><span class="line">+--------------+</span><br><span class="line"><span class="number">3</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0</span>.<span class="number">00</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>发现中国湖南数据出现了两次，现在使用distinct关键字再查询一次</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select distinct adress from persons;</span><br><span class="line">+--------------+</span><br><span class="line">| adress       |</span><br><span class="line">+--------------+</span><br><span class="line">| 中国湖南     |</span><br><span class="line">| 中国上海     |</span><br><span class="line">+--------------+</span><br><span class="line"><span class="number">2</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0</span>.<span class="number">00</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="SQL-where"><a href="#SQL-where" class="headerlink" title="SQL where"></a>SQL where</h2><p><strong>语法</strong></p>
+<p>SELECT 列名 from 表名 where 列 运算符 值</p>
+<p>下面的运算符可在 WHERE 子句中使用：</p>
+<table>
+<thead>
+<tr>
+<th align="left">操作符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">=</td>
+<td align="left">等于</td>
+</tr>
+<tr>
+<td align="left">&lt;&gt;</td>
+<td align="left">不等于</td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="left">大于</td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="left">小于</td>
+</tr>
+<tr>
+<td align="left">&gt;=</td>
+<td align="left">大于等于</td>
+</tr>
+<tr>
+<td align="left">&lt;=</td>
+<td align="left">小于等于</td>
+</tr>
+<tr>
+<td align="left">BETWEEN</td>
+<td align="left">在某个范围内</td>
+</tr>
+<tr>
+<td align="left">LIKE</td>
+<td align="left">搜索某种模式</td>
+</tr>
+</tbody></table>
+<p><strong>实例</strong></p>
+<p>查询<code>adress</code>为<code>中国上海</code>的数据</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from persons where adress = '中国上海';</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">| id | firstname | lastname | adress       | sex  |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">|  <span class="number">2</span> | 李        | 四       | 中国上海     | 男   |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line"><span class="number">1</span> row <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0</span>.<span class="number">00</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>查询姓李的数据</p>
+<p>请注意，我们在例子中的条件值周围使用的是单引号。</p>
+<p>SQL 使用单引号来环绕<em>文本值</em>（大部分数据库系统也接受双引号）。如果是<em>数值</em>，请不要使用引号。</p>
+<h2 id="SQL-and-amp-or"><a href="#SQL-and-amp-or" class="headerlink" title="SQL and &amp; or"></a>SQL and &amp; or</h2><p><strong>and实例</strong></p>
+<p>an用来显示并且的意思</p>
+<p>查询adres在中国，且sex为男的数据。</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from persons where adress like '中国%' and sex = '男';</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">| id | firstname | lastname | adress       | sex  |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">|  <span class="number">1</span> | Adans     | John     | 中国湖南     | 男   |</span><br><span class="line">|  <span class="number">2</span> | 李        | 四       | 中国上海     | 男   |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line"><span class="number">2</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0</span>.<span class="number">00</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>or实例</strong></p>
+<p>or用来表示或者的意思</p>
+<p>查询姓李或者姓欧的数据</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from persons where firstname = '李' or firstname = '欧';</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">| id | firstname | lastname | adress       | sex  |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">|  <span class="number">2</span> | 李        | 四       | 中国上海     | 男   |</span><br><span class="line">|  <span class="number">3</span> | 欧        | 尼酱     | 中国湖南     | 女   |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line"><span class="number">2</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0</span>.<span class="number">00</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>or和and可以结合使用。</p>
+<h2 id="SQL-order-by"><a href="#SQL-order-by" class="headerlink" title="SQL order by"></a>SQL order by</h2><p>用语指定语句进行排序。</p>
+<p>默认按照升序排序。如果需要按照降序排序可以使用desc关键字。</p>
+<p>像上面数据表中添加两行数据：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`persons`</span>(<span class="string">`firstname`</span>, <span class="string">`lastname`</span>, <span class="string">`adress`</span>, <span class="string">`sex`</span>) <span class="keyword">VALUES</span> (<span class="string">'锐'</span>, <span class="string">'雯'</span>, <span class="string">'洛克萨斯'</span>, <span class="string">'女'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`persons`</span>(<span class="string">`firstname`</span>, <span class="string">`lastname`</span>, <span class="string">`adress`</span>, <span class="string">`sex`</span>) <span class="keyword">VALUES</span> (<span class="string">'亚'</span>, <span class="string">'索'</span>, <span class="string">'艾欧尼亚'</span>, <span class="string">'男'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>实例</strong></p>
+<p>按照firstname升序排序</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from persons order by firstname;</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">| id | firstname | lastname | adress       | sex  |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">|  <span class="number">1</span> | Adans     | John     | 中国湖南     | 男   |</span><br><span class="line">|  <span class="number">4</span> | 亚        | 索       | 艾欧尼亚     | 男   |</span><br><span class="line">|  <span class="number">2</span> | 李        | 四       | 中国上海     | 男   |</span><br><span class="line">|  <span class="number">3</span> | 欧        | 尼酱     | 中国湖南     | 女   |</span><br><span class="line">|  <span class="number">5</span> | 锐        | 雯       | 洛克萨斯     | 女   |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line"><span class="number">5</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0</span>.<span class="number">00</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注： 中文会按照字母顺序排序。</p>
+<h2 id="SQL-insert-into"><a href="#SQL-insert-into" class="headerlink" title="SQL insert into"></a>SQL insert into</h2><p><strong>语法</strong></p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名称 <span class="keyword">VALUES</span> (值<span class="number">1</span>, 值<span class="number">2</span>,....)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们也可以指定所要插入数据的列：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name (列<span class="number">1</span>, 列<span class="number">2</span>,...) <span class="keyword">VALUES</span> (值<span class="number">1</span>, 值<span class="number">2</span>,....)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>实例</strong></p>
+<p>向上面表中添加一条数据</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; insert into persons(firstname,lastname,adress,sex) values ('卡','特','洛克萨斯','女');</span><br><span class="line">Query OK, <span class="number">1</span> row affected (<span class="number">0</span>.<span class="number">01</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="SQL-update"><a href="#SQL-update" class="headerlink" title="SQL update"></a>SQL update</h2><p>update语句用语修改表中数据</p>
+<p><strong>语法</strong></p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> 表名称 <span class="keyword">SET</span> 列名称 = 新值 <span class="keyword">WHERE</span> 列名称 = 某值</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>实例</strong></p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; update persons <span class="built_in">set</span> firstname = '张' where firstname = '李';</span><br><span class="line">Query OK, <span class="number">1</span> row affected (<span class="number">0</span>.<span class="number">00</span> sec)</span><br><span class="line">Rows matched: <span class="number">1</span>  Changed: <span class="number">1</span>  Warnings: <span class="number">0</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>也可以修改多条数据，使用<code>,</code>分隔数据。</p>
+<h2 id="SQL-delete"><a href="#SQL-delete" class="headerlink" title="SQL delete"></a>SQL delete</h2><p>DELETE 语句用于删除表中的行。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名称 <span class="keyword">WHERE</span> 列名称 = 值</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="SQL-top（MySQL-limit）"><a href="#SQL-top（MySQL-limit）" class="headerlink" title="SQL top（MySQL limit）"></a>SQL top（MySQL limit）</h2><p>top子句用语规定要返回的记录的数目，在MySQL中使用的是limit关键字。</p>
+<p><strong>实例</strong></p>
+<p>返回两条数据</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from persons limit <span class="number">2</span>;</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">| id | firstname | lastname | adress       | sex  |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line">|  <span class="number">1</span> | Adans     | John     | 中国湖南     | 男   |</span><br><span class="line">|  <span class="number">2</span> | 张        | 四       | 中国上海     | 男   |</span><br><span class="line">+----+-----------+----------+--------------+------+</span><br><span class="line"><span class="number">2</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0</span>.<span class="number">00</span> sec)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>拓展</strong></p>
+<p>Oracle 语法</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">ROWNUM</span> &lt;= <span class="built_in">number</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>例子</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> Persons</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">ROWNUM</span> &lt;= <span class="number">5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>SQL Server 的语法：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TOP <span class="built_in">number</span>|<span class="keyword">percent</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br></pre></td></tr></tbody></table></figure>
 
 <script>
         document.querySelectorAll('.github-emoji')
@@ -246,7 +438,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新: <time datetime="2019-12-25T11:29:38.918Z" itemprop="dateUpdated">2019-12-25 19:29:38</time>
+    最后更新: <time datetime="2019-12-25T13:08:36.399Z" itemprop="dateUpdated">2019-12-25 21:08:36</time>
 </span>
 
 
@@ -283,7 +475,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://vijar-wang.github.io/blog/posts/6df95fa5/&title=《MySQL语句学习》 — ℳr. Wang&pic=https://ViJar-Wang.github.io/blog/img/avatar.jpeg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://vijar-wang.github.io/blog/posts/6df95fa5/&title=《SQL学习》 — ℳr. Wang&pic=https://ViJar-Wang.github.io/blog/img/avatar.jpeg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -293,7 +485,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://vijar-wang.github.io/blog/posts/6df95fa5/&title=《MySQL语句学习》 — ℳr. Wang&source=MySQL数据库" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://vijar-wang.github.io/blog/posts/6df95fa5/&title=《SQL学习》 — ℳr. Wang&source=（Structured Query Language）结构化查询语言" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -303,7 +495,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL语句学习》 — ℳr. Wang&url=https://vijar-wang.github.io/blog/posts/6df95fa5/&via=https://vijar-wang.github.io/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQL学习》 — ℳr. Wang&url=https://vijar-wang.github.io/blog/posts/6df95fa5/&via=https://vijar-wang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -481,7 +673,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://vijar-wang.github.io/blog/posts/6df95fa5/&title=《MySQL语句学习》 — ℳr. Wang&pic=https://ViJar-Wang.github.io/blog/img/avatar.jpeg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://vijar-wang.github.io/blog/posts/6df95fa5/&title=《SQL学习》 — ℳr. Wang&pic=https://ViJar-Wang.github.io/blog/img/avatar.jpeg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -491,7 +683,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://vijar-wang.github.io/blog/posts/6df95fa5/&title=《MySQL语句学习》 — ℳr. Wang&source=MySQL数据库" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://vijar-wang.github.io/blog/posts/6df95fa5/&title=《SQL学习》 — ℳr. Wang&source=（Structured Query Language）结构化查询语言" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -501,7 +693,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL语句学习》 — ℳr. Wang&url=https://vijar-wang.github.io/blog/posts/6df95fa5/&via=https://vijar-wang.github.io/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQL学习》 — ℳr. Wang&url=https://vijar-wang.github.io/blog/posts/6df95fa5/&via=https://vijar-wang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
