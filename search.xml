@@ -55,6 +55,927 @@
       </script>]]></content>
   </entry>
   <entry>
+    <title>mysqlStudy</title>
+    <url>/blog/posts/6df95fa5/</url>
+    <content><![CDATA[<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
+    <title>1419908068@qq.com/61D9EA624424477E98B249FFF01F6D48/JavaSwing</title>
+    <url>/blog/posts/e669786d/</url>
+    <content><![CDATA[<h1 id="Swing类库"><a href="#Swing类库" class="headerlink" title="Swing类库"></a>Swing类库</h1><p>Swing 组织结构如图所示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181102/3-1Q1021309563R.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>从图 1 可以看出，Swing 组件除了 AbstmctButton 类之外都以 J 开头。Swing 容器组件直接继承 AWT 类库中的容器组件类，其他大部分组件都是继承 JComponet 组件。组件可以划分为容器组件和非容器组件，容器组件包括 JFmme 和 JDialog。其中 JComponent 定义了非容器类的轻量级组件（JBntton、JPanel、JMenu 等）。</p>
+<h1 id="Swing窗口容器和面板容器"><a href="#Swing窗口容器和面板容器" class="headerlink" title="Swing窗口容器和面板容器"></a>Swing窗口容器和面板容器</h1><h2 id="JFrame窗口"><a href="#JFrame窗口" class="headerlink" title="JFrame窗口"></a>JFrame窗口</h2><p>下面使用JFrame类创建一个简单的窗口：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintStream;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test09</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test09</span><span class="params">()</span></span>{</span><br><span class="line">        setTitle(<span class="string">"Java GUI程序"</span>);</span><br><span class="line">        setSize(<span class="number">400</span>,<span class="number">300</span>); <span class="comment">// 尺寸</span></span><br><span class="line">        <span class="comment">// 当用户执行关闭操作时应该什么</span></span><br><span class="line">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">        JLabel jLabel = <span class="keyword">new</span> JLabel(<span class="string">"这是一个JFrame类创建的窗口"</span>);</span><br><span class="line">        Container c= getContentPane();</span><br><span class="line">        c.add(jLabel);</span><br><span class="line">        setVisible(<span class="keyword">true</span>); <span class="comment">//显示出来</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>{</span><br><span class="line">        <span class="keyword">new</span> Test09();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>运行结果如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216084810.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="JPanel面板"><a href="#JPanel面板" class="headerlink" title="JPanel面板"></a>JPanel面板</h2><p>JPanel 类的构造方法如下。</p>
+<ul>
+<li>JPanel()：使用默认的布局管理器创建新面板，默认的布局管理器为 FlowLayout。</li>
+<li>JPanel(LayoutManagerLayout layout)：创建指定布局管理器的 JPanel 对象。</li>
+</ul>
+<p>JPanel 类的常用方法如表 所示。</p>
+<table>
+<thead>
+<tr>
+<th>方法名及返回值类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Component add(Component comp)</td>
+<td>将指定的组件追加到此容器的尾部</td>
+</tr>
+<tr>
+<td>void remove(Component comp)</td>
+<td>从容器中移除指定的组件</td>
+</tr>
+<tr>
+<td>void setFont(Font f)</td>
+<td>设置容器的字体</td>
+</tr>
+<tr>
+<td>void setLayout(LayoutManager mgr)</td>
+<td>设置容器的布局管理器</td>
+</tr>
+<tr>
+<td>void setBackground(Color c)</td>
+<td>设置组件的背景色</td>
+</tr>
+</tbody></table>
+<p>编写一个使用 JPanel 组件的窗口程序。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintStream;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test09</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test09</span><span class="params">()</span></span>{</span><br><span class="line">        setTitle(<span class="string">"Java GUI程序"</span>);</span><br><span class="line">        setBounds(<span class="number">300</span>,<span class="number">100</span>,<span class="number">400</span>,<span class="number">200</span>); <span class="comment">//位置以及窗口大小</span></span><br><span class="line">        <span class="comment">// 当用户执行关闭操作时应该什么</span></span><br><span class="line">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">        JLabel jLabel = <span class="keyword">new</span> JLabel(<span class="string">"这是一个JFrame类创建的窗口"</span>);</span><br><span class="line">        JPanel jPanel = <span class="keyword">new</span> JPanel();</span><br><span class="line">        jPanel.setBackground(Color.white); <span class="comment">//背景颜色白色</span></span><br><span class="line">        Container c= getContentPane();</span><br><span class="line">        jPanel.add(jLabel);</span><br><span class="line">        add(jPanel);</span><br><span class="line">        setVisible(<span class="keyword">true</span>); <span class="comment">//显示出来</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>{</span><br><span class="line">        <span class="keyword">new</span> Test09();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216085434.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="Swing布局管理"><a href="#Swing布局管理" class="headerlink" title="Swing布局管理"></a>Swing布局管理</h1><h2 id="边框布局管理器"><a href="#边框布局管理器" class="headerlink" title="边框布局管理器"></a>边框布局管理器</h2><p>BorderLayout（边框布局管理器）是 Window、JFrame 和 JDialog 的默认布局管理器。边框布局管理器将窗口分为 5 个区域：North、South、East、West 和 Center。其中，North 表示北，将占据面板的上方；Soufe 表示南，将占据面板的下方；East表示东，将占据面板的右侧；West 表示西，将占据面板的左侧；中间区域 Center 是在东、南、西、北都填满后剩下的区域，如图所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181102/3-1Q102164933I6.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><font color="red">提示：边框布局管理器并不要求所有区域都必须有组件，如果四周的区域（North、South、East 和 West 区域）没有组件，则由 Center 区域去补充。如果单个区域中添加的不只一个组件，那么后来添加的组件将覆盖原来的组件，所以，区域中只显示最后添加的一个组件。</font></p>
+<p>BorderLayout 布局管理器的构造方法如下所示。</p>
+<ul>
+<li>BorderLayout()：创建一个 Border 布局，组件之间没有间隙。</li>
+<li>BorderLayout(int hgap,int vgap)：创建一个 Border 布局，其中 hgap 表示组件之间的横向间隔；vgap 表示组件之间的纵向间隔，单位是像素。</li>
+</ul>
+<p>使用 BorderLayout 将窗口分割为 5 个区域，并在每个区域添加一个标签按钮。实现代码如下：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test0901</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        JFrame jf = <span class="keyword">new</span> JFrame();</span><br><span class="line">        jf.setSize(<span class="number">400</span>,<span class="number">200</span>);</span><br><span class="line">        jf.setLayout(<span class="keyword">new</span> BorderLayout()); <span class="comment">// 为Frame窗口色值布局为BorderLayout</span></span><br><span class="line">        <span class="comment">// 按钮</span></span><br><span class="line">        JButton button1 = <span class="keyword">new</span> JButton(<span class="string">"上"</span>);</span><br><span class="line">        JButton button2 = <span class="keyword">new</span> JButton(<span class="string">"左"</span>);</span><br><span class="line">        JButton button3 = <span class="keyword">new</span> JButton(<span class="string">"中"</span>);</span><br><span class="line">        JButton button4 = <span class="keyword">new</span> JButton(<span class="string">"右"</span>);</span><br><span class="line">        JButton button5 = <span class="keyword">new</span> JButton(<span class="string">"下"</span>);</span><br><span class="line">        jf.add(button1,BorderLayout.NORTH);</span><br><span class="line">        jf.add(button2,BorderLayout.WEST);</span><br><span class="line">        jf.add(button3,BorderLayout.CENTER);</span><br><span class="line">        jf.add(button4,BorderLayout.EAST);</span><br><span class="line">        jf.add(button5,BorderLayout.SOUTH);</span><br><span class="line">        jf.setBounds(<span class="number">300</span>,<span class="number">200</span>,<span class="number">600</span>,<span class="number">300</span>);</span><br><span class="line">        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        jf.setVisible(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216090332.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="流式布局管理器"><a href="#流式布局管理器" class="headerlink" title="流式布局管理器"></a>流式布局管理器</h2><p>FlowLayout（流式布局管理器）是 JPanel 和 JApplet 的默认布局管理器。</p>
+<p>FlowLayout 布局管理器的构造方法如下。</p>
+<ul>
+<li>FlowLayout()：创建一个布局管理器，使用默认的居中对齐方式和默认 5 像素的水平和垂直间隔。</li>
+<li>FlowLayout(int align)：创建一个布局管理器，使用默认 5 像素的水平和垂直间隔。其中，align 表示组件的对齐方式，对齐的值必须是 FlowLayoutLEFT、FlowLayout.RIGHT 和 FlowLayout.CENTER，指定组件在这一行的位置是居左对齐、居右对齐或居中对齐。</li>
+<li>FlowLayout(int align, int hgap,int vgap)：创建一个布局管理器，其中 align 表示组件的对齐方式；hgap 表示组件之间的横向间隔；vgap 表示组件之间的纵向间隔，单位是像素。</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test0902</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        JFrame jf = <span class="keyword">new</span> JFrame(<span class="string">"流式布局管理器"</span>);</span><br><span class="line">        JPanel jPanel = <span class="keyword">new</span> JPanel();</span><br><span class="line">        JButton button1 = <span class="keyword">new</span> JButton(<span class="string">"1"</span>);</span><br><span class="line">        JButton button2 = <span class="keyword">new</span> JButton(<span class="string">"2"</span>);</span><br><span class="line">        JButton button3 = <span class="keyword">new</span> JButton(<span class="string">"3"</span>);</span><br><span class="line">        JButton button4 = <span class="keyword">new</span> JButton(<span class="string">"4"</span>);</span><br><span class="line">        JButton button5 = <span class="keyword">new</span> JButton(<span class="string">"5"</span>);</span><br><span class="line">        JButton button6 = <span class="keyword">new</span> JButton(<span class="string">"6"</span>);</span><br><span class="line">        JButton button7 = <span class="keyword">new</span> JButton(<span class="string">"7"</span>);</span><br><span class="line">        JButton button8 = <span class="keyword">new</span> JButton(<span class="string">"8"</span>);</span><br><span class="line">        JButton button9 = <span class="keyword">new</span> JButton(<span class="string">"9"</span>);</span><br><span class="line">        jPanel.add(button1);</span><br><span class="line">        jPanel.add(button2);</span><br><span class="line">        jPanel.add(button3);</span><br><span class="line">        jPanel.add(button4);</span><br><span class="line">        jPanel.add(button5);</span><br><span class="line">        jPanel.add(button6);</span><br><span class="line">        jPanel.add(button7);</span><br><span class="line">        jPanel.add(button8);</span><br><span class="line">        jPanel.add(button9);</span><br><span class="line">        <span class="comment">// 向JPanel添加FlowLayout布局管理器,并将组建间的横向和纵向间隙都设置为20像素。</span></span><br><span class="line">        jPanel.setLayout(<span class="keyword">new</span> FlowLayout(FlowLayout.LEADING,<span class="number">20</span>,<span class="number">20</span>));</span><br><span class="line">        jPanel.setBackground(Color.white);</span><br><span class="line">        jf.add(jPanel);</span><br><span class="line">        jf.setBounds(<span class="number">300</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">150</span>);</span><br><span class="line">        jf.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上述代码中想JPanel面板中添加了9个按钮，但如果面板打下不允许的情况的按钮不会显示完全，同时会自动换行。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216091520.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216091532.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="卡片布局管理器"><a href="#卡片布局管理器" class="headerlink" title="卡片布局管理器"></a>卡片布局管理器</h2><p>CardLayout（卡片布局管理器）能够帮助用户实现多个成员共享同一个显不空间，并且一次只显示一个容器组件的内容。</p>
+<p>CardLayout 布局管理器将容器分成许多层，每层的显示空间占据整个容器的大小，但是每层只允许放置一个组件。CardLayout 的构造方法如下。</p>
+<ul>
+<li>CardLayout()：构造一个新布局，默认间隔为 0。</li>
+<li>CardLayout(int hgap, int vgap)：创建布局管理器，并指定组件间的水平间隔（hgap）和垂直间隔（vgap）。</li>
+</ul>
+<p>使用 CardLayout 类对容器内的两个面板进行布局。其中第一个面板上包括三个按钮，第二个面板上包括三个文本框。最后调用 CardLayout 类的 show() 方法显示指定面板的内容，代码如下：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CardLayoutDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        JFrame jf = <span class="keyword">new</span> JFrame(<span class="string">"卡片布局管理器"</span>);</span><br><span class="line">        JPanel jp1 = <span class="keyword">new</span> JPanel();</span><br><span class="line">        JPanel jp2 = <span class="keyword">new</span> JPanel();</span><br><span class="line">        JPanel cards = <span class="keyword">new</span> JPanel(<span class="keyword">new</span> CardLayout());</span><br><span class="line">        jp1.add(<span class="keyword">new</span> JButton(<span class="string">"登录"</span>));</span><br><span class="line">        jp1.add(<span class="keyword">new</span> JButton(<span class="string">"注册"</span>));</span><br><span class="line">        jp1.add(<span class="keyword">new</span> JButton(<span class="string">"找回密码"</span>));</span><br><span class="line">		jp2.add(<span class="keyword">new</span> JTextField(<span class="string">"用户名"</span>),<span class="number">20</span>);</span><br><span class="line">        jp2.add(<span class="keyword">new</span> JTextField(<span class="string">"密码"</span>),<span class="number">20</span>);</span><br><span class="line">        jp2.add(<span class="keyword">new</span> JTextField(<span class="string">"验证码"</span>,<span class="number">20</span>));</span><br><span class="line">        cards.add(jp1, <span class="string">"card1"</span>);</span><br><span class="line">        cards.add(jp2, <span class="string">"card2"</span>);</span><br><span class="line">        CardLayout c1 = (CardLayout) cards.getLayout();</span><br><span class="line">        c1.show(cards,<span class="string">"card1"</span>);</span><br><span class="line">        jf.add(cards);</span><br><span class="line">        jf.setBounds(<span class="number">300</span>,<span class="number">200</span>,<span class="number">400</span>,<span class="number">200</span>);</span><br><span class="line">        jf.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上述代码显示的是card1,</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216092710.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>如果把<code>c1.show(cards,"card1");</code>中的card1改为card2：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216092943.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="网格布局管理器"><a href="#网格布局管理器" class="headerlink" title="网格布局管理器"></a>网格布局管理器</h2><p>GridLayout（网格布局管理器）为组件的放置位置提供了更大的灵活性。它将区域分割成行数（rows）和列数（columns）的网格状布局，组件按照由左至右、由上而下的次序排列填充到各个单元格中。</p>
+<p>GridLayout 的构造方法如下。</p>
+<ul>
+<li>GridLayout(int rows,int cols)：创建一个指定行（rows）和列（cols）的网格布局。布局中所有组件的大小一样，组件之间没有间隔。</li>
+<li>GridLayout(int rows,int cols,int hgap,int vgap)：创建一个指定行（rows）和列（cols）的网格布局，并且可以指定组件之间横向（hgap）和纵向（vgap）的间隔，单位是像素。</li>
+</ul>
+<p>提示：GridLayout 布局管理器总是忽略组件的最佳大小，而是根据提供的行和列进行平分。该布局管理的所有单元格的宽度和高度都是一样的。</p>
+<p>使用 GridLayout 类的网格布局设计一个简单计算器</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GridLayoutDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame(<span class="string">"GridLayou布局计算器"</span>);</span><br><span class="line">        JPanel panel = <span class="keyword">new</span> JPanel();    <span class="comment">//创建面板</span></span><br><span class="line">        <span class="comment">//指定面板的布局为GridLayout，4行4列，间隙为5</span></span><br><span class="line">        panel.setLayout(<span class="keyword">new</span> GridLayout(<span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"7"</span>));    <span class="comment">//添加按钮</span></span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"8"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"9"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"/"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"4"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"5"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"6"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"*"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"1"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"2"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"3"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"-"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"0"</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"."</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"="</span>));</span><br><span class="line">        panel.add(<span class="keyword">new</span> JButton(<span class="string">"+"</span>));</span><br><span class="line">        frame.add(panel);    <span class="comment">//添加面板到容器</span></span><br><span class="line">        frame.setBounds(<span class="number">300</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">150</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>效果图</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216093141.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="网格包布局管理器"><a href="#网格包布局管理器" class="headerlink" title="网格包布局管理器"></a>网格包布局管理器</h2><p>GridBagLayout（网格包布局管理器）是在网格基础上提供复杂的布局，是最灵活、 最复杂的布局管理器。</p>
+<p>GridBagLayout 不需要组件的尺寸一致，允许组件扩展到多行多列。每个 GridBagLayout 对象都维护了一组动态的矩形网格单元，每个组件占一个或多个单元，所占有的网格单元称为组件的显示区域。</p>
+<p>创建一个窗口，使用 GridBagLayout 进行布局，实现一个简易的手机拨号盘</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GridBagLayoutDemo</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">    <span class="comment">//向JFrame中添加JButton按钮</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">makeButton</span><span class="params">(String title,JFrame frame,GridBagLayout gridBagLayout,GridBagConstraints constraints)</span></span></span><br><span class="line"><span class="function">    </span>{   </span><br><span class="line">        JButton button=<span class="keyword">new</span> JButton(title);    <span class="comment">//创建Button对象</span></span><br><span class="line">        gridBagLayout.setConstraints(button,constraints);</span><br><span class="line">        frame.add(button);</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] agrs)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        JFrame frame=<span class="keyword">new</span> JFrame(<span class="string">"拨号盘"</span>);</span><br><span class="line">        GridBagLayout gbaglayout=<span class="keyword">new</span> GridBagLayout();    <span class="comment">//创建GridBagLayout布局管理器</span></span><br><span class="line">        GridBagConstraints constraints=<span class="keyword">new</span> GridBagConstraints();</span><br><span class="line">        frame.setLayout(gbaglayout);    <span class="comment">//使用GridBagLayout布局管理器</span></span><br><span class="line">        constraints.fill=GridBagConstraints.BOTH;    <span class="comment">//组件填充显示区域</span></span><br><span class="line">        constraints.weightx=<span class="number">0.0</span>;    <span class="comment">//恢复默认值</span></span><br><span class="line">        constraints.gridwidth = GridBagConstraints.REMAINDER;    <span class="comment">//结束行</span></span><br><span class="line">        JTextField tf=<span class="keyword">new</span> JTextField(<span class="string">"13612345678"</span>);</span><br><span class="line">        gbaglayout.setConstraints(tf, constraints);</span><br><span class="line">        frame.add(tf);</span><br><span class="line">        constraints.weightx=<span class="number">0.5</span>;    <span class="comment">// 指定组件的分配区域</span></span><br><span class="line">        constraints.weighty=<span class="number">0.2</span>;</span><br><span class="line">        constraints.gridwidth=<span class="number">1</span>;</span><br><span class="line">        makeButton(<span class="string">"7"</span>,frame,gbaglayout,constraints);    <span class="comment">//调用方法，添加按钮组件</span></span><br><span class="line">        makeButton(<span class="string">"8"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        constraints.gridwidth=GridBagConstraints.REMAINDER;    <span class="comment">//结束行</span></span><br><span class="line">        makeButton(<span class="string">"9"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        constraints.gridwidth=<span class="number">1</span>;    <span class="comment">//重新设置gridwidth的值</span></span><br><span class="line">       </span><br><span class="line">        makeButton(<span class="string">"4"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        makeButton(<span class="string">"5"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        constraints.gridwidth=GridBagConstraints.REMAINDER;</span><br><span class="line">        makeButton(<span class="string">"6"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        constraints.gridwidth=<span class="number">1</span>;</span><br><span class="line">       </span><br><span class="line">        makeButton(<span class="string">"1"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        makeButton(<span class="string">"2"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        constraints.gridwidth=GridBagConstraints.REMAINDER;</span><br><span class="line">        makeButton(<span class="string">"3"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        constraints.gridwidth=<span class="number">1</span>;</span><br><span class="line">       </span><br><span class="line">        makeButton(<span class="string">"返回"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        constraints.gridwidth=GridBagConstraints.REMAINDER;</span><br><span class="line">        makeButton(<span class="string">"拨号"</span>,frame,gbaglayout,constraints);</span><br><span class="line">        constraints.gridwidth=<span class="number">1</span>;</span><br><span class="line">        frame.setBounds(<span class="number">400</span>,<span class="number">400</span>,<span class="number">400</span>,<span class="number">400</span>);    <span class="comment">//设置容器大小</span></span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216093531.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<ol>
+<li>gridx 和 gridy</li>
+</ol>
+<p>用来指定组件左上角在网格中的行和列。容器中最左边列的 gridx 为 0，最上边行的 gridy 为 0。这两个变量的默认值是 GridBagConstraints.RELATIVE，表示对应的组件将放在前一个组件的右边或下面。</p>
+<ol start="2">
+<li>gridwidth 和 gridheight</li>
+</ol>
+<p>用来指定组件显示区域所占的列数和行数，以网格单元而不是像素为单位，默认值为 1。</p>
+<ol start="3">
+<li>fill</li>
+</ol>
+<p>指定组件填充网格的方式，可以是如下值：GridBagConstraints.NONE（默认值）、GridBagConstraints.HORIZONTAL（组件横向充满显示区域，但是不改变组件高度）、GridBagConstraints.VERTICAL（组件纵向充满显示区域，但是不改变组件宽度）以及 GridBagConstraints.BOTH（组件横向、纵向充满其显示区域）。</p>
+<ol start="4">
+<li>ipadx 和 ipady</li>
+</ol>
+<p>指定组件显示区域的内部填充，即在组件最小尺寸之外需要附加的像素数，默认值为 0。</p>
+<ol start="5">
+<li>insets</li>
+</ol>
+<p>指定组件显示区域的外部填充，即组件与其显示区域边缘之间的空间，默认组件没有外部填充。</p>
+<ol start="6">
+<li>anchor</li>
+</ol>
+<p>指定组件在显示区域中的摆放位置。可选值有 GridBagConstraints.CENTER（默认值）、GridBagConstraints.NORTH、GridBagConstraints.<br>NORTHEAST、GridBagConstraints.EAST、GridBagConstraints.SOUTH、GridBagConstraints.SOUTHEAST、GridBagConstraints.WEST、GridBagConstraints.SOUTHWEST 以及 GridBagConstraints.NORTHWEST。</p>
+<ol start="7">
+<li>weightx 和 weighty</li>
+</ol>
+<p>用来指定在容器大小改变时，增加或减少的空间如何在组件间分配，默认值为 0，即所有的组件将聚拢在容器的中心，多余的空间将放在容器边缘与网格单元之间。weightx 和 weighty 的取值一般在 0.0 与 1.0 之间，数值大表明组件所在的行或者列将获得更多的空间。</p>
+<h2 id="盒布局管理器"><a href="#盒布局管理器" class="headerlink" title="盒布局管理器"></a>盒布局管理器</h2><p>BoxLayout（盒布局管理器）通常和 Box 容器联合使用，Box 类有以下两个静态方法。</p>
+<ul>
+<li>createHorizontalBox()：返回一个 Box 对象，它采用水平 BoxLayout，即 BoxLayout 沿着水平方向放置组件，让组件在容器内从左到右排列。</li>
+<li>createVerticalBox()：返回一个 Box 对象，它采用垂直 BoxLayout，即 BoxLayout 沿着垂直方向放置组件，让组件在容器内从上到下进行排列。</li>
+</ul>
+<p>Box 还提供了用于决定组件之间间隔的静态方法，如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>网格包布局</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Component createHorizontalGlue()</td>
+<td>创建一个不可见的、可以被水平拉伸和收缩的组件</td>
+</tr>
+<tr>
+<td>static Component createVerticalGlue()</td>
+<td>创建一个不可见的、可以被垂直拉伸和收缩的组件</td>
+</tr>
+<tr>
+<td>static Component createHorizontalStrut(int width)</td>
+<td>创建一个不可见的、固定宽度的组件</td>
+</tr>
+<tr>
+<td>static Component createVerticalStrut(int height)</td>
+<td>创建一个不可见的、固定高度的组件</td>
+</tr>
+<tr>
+<td>static Component createRigidArea(Dimension d)</td>
+<td>创建一个不可见的、总是具有指定大小的组件</td>
+</tr>
+</tbody></table>
+<p>BoxLayout 类只有一个构造方法，如下所示。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">BoxLayout(Container c,<span class="keyword">int</span> axis)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用 BoxLayout 类对容器内的 4 个按钮进行布局管理，使两个按钮为横向排列，另外两个按钮为纵向排列</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BoxLayoutDemo</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] agrs)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        JFrame frame=<span class="keyword">new</span> JFrame(<span class="string">"Java示例程序"</span>);</span><br><span class="line">        Box b1=Box.createHorizontalBox();    <span class="comment">//创建横向Box容器</span></span><br><span class="line">        Box b2=Box.createVerticalBox();    <span class="comment">//创建纵向Box容器</span></span><br><span class="line">        frame.add(b1);    <span class="comment">//将外层横向Box添加进窗体</span></span><br><span class="line">        b1.add(Box.createVerticalStrut(<span class="number">200</span>));    <span class="comment">//添加高度为200的垂直框架</span></span><br><span class="line">        b1.add(<span class="keyword">new</span> JButton(<span class="string">"西"</span>));    <span class="comment">//添加按钮1</span></span><br><span class="line">        b1.add(Box.createHorizontalStrut(<span class="number">140</span>));    <span class="comment">//添加长度为140的水平框架 </span></span><br><span class="line">        b1.add(<span class="keyword">new</span> JButton(<span class="string">"东"</span>));    <span class="comment">//添加按钮2</span></span><br><span class="line">        b1.add(Box.createHorizontalGlue());    <span class="comment">//添加水平胶水</span></span><br><span class="line">        b1.add(b2);    <span class="comment">//添加嵌套的纵向Box容器</span></span><br><span class="line">        <span class="comment">//添加宽度为100，高度为20的固定区域  </span></span><br><span class="line">        b2.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">100</span>,<span class="number">20</span>))); </span><br><span class="line">        b2.add(<span class="keyword">new</span> JButton(<span class="string">"北"</span>));    <span class="comment">//添加按钮3</span></span><br><span class="line">        b2.add(Box.createVerticalGlue());    <span class="comment">//添加垂直组件</span></span><br><span class="line">        b2.add(<span class="keyword">new</span> JButton(<span class="string">"南"</span>));    <span class="comment">//添加按钮4</span></span><br><span class="line">        b2.add(Box.createVerticalStrut(<span class="number">40</span>));    <span class="comment">//添加长度为40的垂直框架</span></span><br><span class="line">        <span class="comment">//设置窗口的关闭动作、标题、大小位置以及可见性等  </span></span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); </span><br><span class="line">        frame.setBounds(<span class="number">100</span>,<span class="number">100</span>,<span class="number">400</span>,<span class="number">200</span>); </span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>); </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216094039.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="Swing组件"><a href="#Swing组件" class="headerlink" title="Swing组件"></a>Swing组件</h1><h2 id="标签组件"><a href="#标签组件" class="headerlink" title="标签组件"></a>标签组件</h2><p>在添加了容器并指定了布局管理方式之后，便可以向容器中添加各种展示类的组件，像标签、按钮、单选和多选框等。</p>
+<p>对于只包含文本的标签可以使用 JLabel 类，该类的主要构造方法有如下几种形式。</p>
+<ul>
+<li>JLabel()：创建无图像并且标题为空字符串的 JLabel。</li>
+<li>JLabel(Icon image)：创建具有指定图像的 JLabel。</li>
+<li>JLabel(String text)：创建具有指定文本的 JLabel。</li>
+<li>JLabel(String textjcon image,int horizontalAlignment)：创建具有指定文本、图像和水平对齐方式的 JLabel，horizontalAlignment 的取值有 3 个，即 JLabel.LEFT、JLabel.RIGHT 和 JLabel.CENTER。</li>
+</ul>
+<p>使用 JFrame 组件创建一个窗口，然后向窗口中添加 3 个标签，这 3 个标签分别使用不同的创建方法。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JLabelDemo</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] agrs)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        JFrame frame=<span class="keyword">new</span> JFrame(<span class="string">"Java标签组件示例"</span>);    <span class="comment">//创建Frame窗口</span></span><br><span class="line">        JPanel jp=<span class="keyword">new</span> JPanel();    <span class="comment">//创建面板</span></span><br><span class="line">        JLabel label1=<span class="keyword">new</span> JLabel(<span class="string">"这是一个标签"</span>);    <span class="comment">//创建标签</span></span><br><span class="line">        JLabel label2=<span class="keyword">new</span> JLabel();</span><br><span class="line">        label2.setText(<span class="string">"这还是一个标签"</span>);</span><br><span class="line">        ImageIcon img=<span class="keyword">new</span> ImageIcon(<span class="string">"C:\\Users\\Administrator\\Pictures\\Camera Roll\\bg.png"</span>);    <span class="comment">//创建一个图标</span></span><br><span class="line">        <span class="comment">//创建既含有文本又含有图标的JLabel对象</span></span><br><span class="line">        JLabel label3=<span class="keyword">new</span> JLabel(<span class="string">"这是一个图片标签"</span>,img,JLabel.CENTER);</span><br><span class="line">        jp.add(label1);    <span class="comment">//添加标签到面板</span></span><br><span class="line">        jp.add(label2);</span><br><span class="line">        jp.add(label3);</span><br><span class="line">        frame.add(jp);</span><br><span class="line">        frame.setBounds(<span class="number">300</span>,<span class="number">200</span>,<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216094600.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="按钮组件"><a href="#按钮组件" class="headerlink" title="按钮组件"></a>按钮组件</h2><p>按钮是图形界面上常见的元素，在前面已经多次使用过它。JButton 类的常用构造方法如下。</p>
+<ul>
+<li>JButton()：创建一个无标签文本、无图标的按钮。</li>
+<li>JButton(Icon icon)：创建一个无标签文本、有图标的按钮。</li>
+<li>JButton(String text)：创建一个有标签文本、无图标的按钮。</li>
+<li>JButton(String text,Icon icon)：创建一个有标签文本、有图标的按钮</li>
+</ul>
+<p>Button 类的常用方法如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>addActionListener(ActionListener listener)</td>
+<td>为按担组件注册 ActionListener 监听</td>
+</tr>
+<tr>
+<td>void setIcon(Icon icon)</td>
+<td>设置按钮的默认图标</td>
+</tr>
+<tr>
+<td>void setText(String text)</td>
+<td>设置按鈕的文本</td>
+</tr>
+<tr>
+<td>void setMargin(Insets m)</td>
+<td>设置按钮边框和标签之间的空白</td>
+</tr>
+<tr>
+<td>void setMnemonic(int nmemonic)</td>
+<td>设置按钮的键盘快捷键，所设置的快捷键在实际操作时需要结合 Alt 键进行实现</td>
+</tr>
+<tr>
+<td>void setPressedIcon(Icon icon)</td>
+<td>设置按下按钮时的图标</td>
+</tr>
+<tr>
+<td>void setSelectedIcon(Icon icon)</td>
+<td>设置选择按鈕时的图标</td>
+</tr>
+<tr>
+<td>void setRolloveiicon(Icon icon)</td>
+<td>设置鼠标移动到按扭区域时的图标</td>
+</tr>
+<tr>
+<td>void setDisabledIcon(Icon icon)</td>
+<td>设置按钮无效状态下的图标</td>
+</tr>
+<tr>
+<td>void setVerticalAlignment(int alig)</td>
+<td>设置图标和文本的垂直对齐方式</td>
+</tr>
+<tr>
+<td>void setHorizontalAlignment(int alig)</td>
+<td>设置图标和文本的水平对齐方式</td>
+</tr>
+<tr>
+<td>void setEnable(boolean flag)</td>
+<td>启用或禁用按扭</td>
+</tr>
+<tr>
+<td>void setVerticalTextPosition(int textPosition)</td>
+<td>设置文本相对于图标的垂直位置</td>
+</tr>
+<tr>
+<td>void setHorizontalTextPosition(int textPosition)</td>
+<td>设置文本相对于图标的水平位置</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JButtonDemo</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        JFrame frame=<span class="keyword">new</span> JFrame(<span class="string">"Java按钮组件示例"</span>);    <span class="comment">//创建Frame窗口</span></span><br><span class="line">        frame.setSize(<span class="number">400</span>, <span class="number">200</span>);</span><br><span class="line">        JPanel jp=<span class="keyword">new</span> JPanel();    <span class="comment">//创建JPanel对象</span></span><br><span class="line">        JButton btn1=<span class="keyword">new</span> JButton(<span class="string">"我是普通按钮"</span>);    <span class="comment">//创建JButton对象</span></span><br><span class="line">        JButton btn2=<span class="keyword">new</span> JButton(<span class="string">"我是带背景颜色按钮"</span>);</span><br><span class="line">        JButton btn3=<span class="keyword">new</span> JButton(<span class="string">"我是不可用按钮"</span>);</span><br><span class="line">        JButton btn4=<span class="keyword">new</span> JButton(<span class="string">"我是底部对齐按钮"</span>);</span><br><span class="line">        jp.add(btn1);</span><br><span class="line">        btn2.setBackground(Color.YELLOW);    <span class="comment">//设置按钮背景色</span></span><br><span class="line">        jp.add(btn2);</span><br><span class="line">        btn3.setEnabled(<span class="keyword">false</span>);    <span class="comment">//设置按钮不可用</span></span><br><span class="line">        jp.add(btn3);</span><br><span class="line">        Dimension preferredSize=<span class="keyword">new</span> Dimension(<span class="number">160</span>, <span class="number">60</span>);    <span class="comment">//设置尺寸</span></span><br><span class="line">        btn4.setPreferredSize(preferredSize);    <span class="comment">//设置按钮大小</span></span><br><span class="line">        btn4.setVerticalAlignment(SwingConstants.BOTTOM);    <span class="comment">//设置按钮垂直对齐方式</span></span><br><span class="line">        jp.add(btn4);</span><br><span class="line">        frame.add(jp);</span><br><span class="line">        frame.setBounds(<span class="number">300</span>, <span class="number">200</span>, <span class="number">600</span>, <span class="number">300</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216094829.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<h2 id="单行文本框"><a href="#单行文本框" class="headerlink" title="单行文本框"></a>单行文本框</h2><p>使用 JTextField 类实现一个单行文本框，它允许用户输入<strong>单行</strong>的文本信息。该类的常用构造方法如下。</p>
+<ul>
+<li>JTextField()：创建一个默认的文本框。</li>
+<li>JTextField(String text)：创建一个指定初始化文本信息的文本框。</li>
+<li>JTextField(int columns)：创建一个指定列数的文本框。</li>
+<li>JTextField(String text,int columns)：创建一个既指定初始化文本信息，又指定列数的文本框。</li>
+</ul>
+<p>JTextField 类的常用方法如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dimension getPreferredSize()</td>
+<td>获得文本框的首选大小</td>
+</tr>
+<tr>
+<td>void scrollRectToVisible(Rectangle r)</td>
+<td>向左或向右滚动文本框中的内容</td>
+</tr>
+<tr>
+<td>void setColumns(int columns)</td>
+<td>设置文本框最多可显示内容的列数</td>
+</tr>
+<tr>
+<td>void setFont(Font f)</td>
+<td>设置文本框的字体</td>
+</tr>
+<tr>
+<td>void setScrollOffset(int scrollOffset)</td>
+<td>设置文本框的滚动偏移量（以像素为单位）</td>
+</tr>
+<tr>
+<td>void setHorizontalAlignment(int alignment)</td>
+<td>设置文本框内容的水平对齐方式</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JTextFieldDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] agrs)</span> </span>{</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame(<span class="string">"Java文本框组件示例"</span>);    <span class="comment">//创建Frame窗口</span></span><br><span class="line">        JPanel jp = <span class="keyword">new</span> JPanel();    <span class="comment">//创建面板</span></span><br><span class="line">        JTextField txtfield1 = <span class="keyword">new</span> JTextField();    <span class="comment">//创建文本框</span></span><br><span class="line">        txtfield1.setText(<span class="string">"普通文本框"</span>);    <span class="comment">//设置文本框的内容</span></span><br><span class="line">        JTextField txtfield2 = <span class="keyword">new</span> JTextField(<span class="number">28</span>);</span><br><span class="line">        txtfield2.setFont(<span class="keyword">new</span> Font(<span class="string">"楷体"</span>, Font.BOLD, <span class="number">16</span>));    <span class="comment">//修改字体样式</span></span><br><span class="line">        txtfield2.setText(<span class="string">"指定长度和字体的文本框"</span>);</span><br><span class="line">        JTextField txtfield3 = <span class="keyword">new</span> JTextField(<span class="number">30</span>);</span><br><span class="line">        txtfield3.setText(<span class="string">"居中对齐"</span>);</span><br><span class="line">        txtfield3.setHorizontalAlignment(JTextField.CENTER);    <span class="comment">//居中对齐</span></span><br><span class="line">        jp.add(txtfield1);</span><br><span class="line">        jp.add(txtfield2);</span><br><span class="line">        jp.add(txtfield3);</span><br><span class="line">        frame.add(jp);</span><br><span class="line">        frame.setBounds(<span class="number">300</span>, <span class="number">200</span>, <span class="number">400</span>, <span class="number">100</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216094942.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="文本域"><a href="#文本域" class="headerlink" title="文本域"></a>文本域</h2><p>文本域与文本框的最大区别就是文本域允许用户输入多行文本信息。</p>
+<p>使用 JTextArea 类实现一个文本域，其常用构造方法如下。</p>
+<ul>
+<li>JTextArea()：创建一个默认的文本域。</li>
+<li>JTextArea(int rows,int columns)：创建一个具有指定行数和列数的文本域。</li>
+<li>JTextArea(String text)：创建一个包含指定文本的文本域。</li>
+<li>JTextArea(String text,int rows,int columns)：创建一个既包含指定文本，又包含指定行数和列数的多行文本域。</li>
+</ul>
+<p>JTextArea 类的常用方法如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void append(String str)</td>
+<td>将字符串 str 添加到文本域的最后位置</td>
+</tr>
+<tr>
+<td>void setColumns(int columns)</td>
+<td>设置文本域的行数</td>
+</tr>
+<tr>
+<td>void setRows(int rows)</td>
+<td>设置文本域的列数</td>
+</tr>
+<tr>
+<td>int getColumns()</td>
+<td>获取文本域的行数</td>
+</tr>
+<tr>
+<td>void setLineWrap(boolean wrap)</td>
+<td>设置文本域的换行策略</td>
+</tr>
+<tr>
+<td>int getRows()</td>
+<td>获取文本域的列数</td>
+</tr>
+<tr>
+<td>void insert(String str,int position)</td>
+<td>插入指定的字符串到文本域的指定位置</td>
+</tr>
+<tr>
+<td>void replaceRange(String str,int start,int end)</td>
+<td>将指定的开始位 start 与结束位 end 之间的字符串用指定的字符串 str 取代</td>
+</tr>
+</tbody></table>
+<p>使用 JFrame 组件创建一个窗口，再向窗口中添加一个文本域，并将文本域中的文本设置为自动换行，允许显示滚动条。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JTextAreaDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] agrs)</span> </span>{</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame(<span class="string">"Java文本域组件示例"</span>);    <span class="comment">//创建Frame窗口</span></span><br><span class="line">        JPanel jp = <span class="keyword">new</span> JPanel();    <span class="comment">//创建一个JPanel对象</span></span><br><span class="line">        JTextArea jta = <span class="keyword">new</span> JTextArea(<span class="string">"请输入内容"</span>, <span class="number">7</span>, <span class="number">30</span>);</span><br><span class="line">        jta.setLineWrap(<span class="keyword">true</span>);    <span class="comment">//设置文本域中的文本为自动换行</span></span><br><span class="line">        jta.setForeground(Color.BLACK);    <span class="comment">//设置组件的背景色</span></span><br><span class="line">        jta.setFont(<span class="keyword">new</span> Font(<span class="string">"楷体"</span>, Font.BOLD, <span class="number">16</span>));    <span class="comment">//修改字体样式</span></span><br><span class="line">        jta.setBackground(Color.YELLOW);    <span class="comment">//设置按钮背景色</span></span><br><span class="line">        JScrollPane jsp = <span class="keyword">new</span> JScrollPane(jta);    <span class="comment">//将文本域放入滚动窗口</span></span><br><span class="line">        Dimension size = jta.getPreferredSize();    <span class="comment">//获得文本域的首选大小</span></span><br><span class="line">        jsp.setBounds(<span class="number">110</span>, <span class="number">90</span>, size.width, size.height);</span><br><span class="line">        jp.add(jsp);    <span class="comment">//将JScrollPane添加到JPanel容器中</span></span><br><span class="line">        frame.add(jp);    <span class="comment">//将JPanel容器添加到JFrame容器中</span></span><br><span class="line">        frame.setBackground(Color.LIGHT_GRAY);</span><br><span class="line">        frame.setSize(<span class="number">400</span>, <span class="number">200</span>);    <span class="comment">//设置JFrame容器的大小</span></span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/ViJar-Wang/Figurebed/master/img/20191216095216.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="复选框组件"><a href="#复选框组件" class="headerlink" title="复选框组件"></a>复选框组件</h2><p>一个复选框有选中和未选中两种状态，并且可以同时选定多个复选框。使用 JCheckBox 类实现复选框，该类的常用构造方法如下。</p>
+<ul>
+<li>JCheckBox()：创建一个默认的复选框，在默认情况下既未指定文本，也未指定图像，并且未被选择。</li>
+<li>JCheckBox(String text)：创建一个指定文本的复选框。</li>
+<li>JCheckBox(String text,boolean selected)：创建一个指定文本和选择状态的复选框</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JCheckBoxDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        JFrame frame=<span class="keyword">new</span> JFrame(<span class="string">"Java复选组件示例"</span>);    <span class="comment">//创建Frame窗口</span></span><br><span class="line">        JPanel jp=<span class="keyword">new</span> JPanel();    <span class="comment">//创建面板</span></span><br><span class="line">        JLabel label=<span class="keyword">new</span> JLabel(<span class="string">"流行编程语言有："</span>);</span><br><span class="line">        label.setFont(<span class="keyword">new</span> Font(<span class="string">"楷体"</span>,Font.BOLD,<span class="number">16</span>));    <span class="comment">//修改字体样式</span></span><br><span class="line">        JCheckBox chkbox1=<span class="keyword">new</span> JCheckBox(<span class="string">"C#"</span>, <span class="keyword">true</span>);    <span class="comment">//创建指定文本和状态的复选框</span></span><br><span class="line">        JCheckBox chkbox2=<span class="keyword">new</span> JCheckBox(<span class="string">"C++"</span>);    <span class="comment">//创建指定文本的复选框</span></span><br><span class="line">        JCheckBox chkbox3=<span class="keyword">new</span> JCheckBox(<span class="string">"Java"</span>);    <span class="comment">//创建指定文本的复选框</span></span><br><span class="line">        JCheckBox chkbox4=<span class="keyword">new</span> JCheckBox(<span class="string">"Python"</span>);    <span class="comment">//创建指定文本的复选框</span></span><br><span class="line">        JCheckBox chkbox5=<span class="keyword">new</span> JCheckBox(<span class="string">"PHP"</span>);    <span class="comment">//创建指定文本的复选框</span></span><br><span class="line">        JCheckBox chkbox6=<span class="keyword">new</span> JCheckBox(<span class="string">"Perl"</span>);    <span class="comment">//创建指定文本的复选框</span></span><br><span class="line">        jp.add(label);</span><br><span class="line">        jp.add(chkbox1);</span><br><span class="line">        jp.add(chkbox2);</span><br><span class="line">        jp.add(chkbox3);</span><br><span class="line">        jp.add(chkbox4);</span><br><span class="line">        jp.add(chkbox5);</span><br><span class="line">        jp.add(chkbox6);</span><br><span class="line">        frame.add(jp);</span><br><span class="line">        frame.setBounds(<span class="number">300</span>,<span class="number">200</span>,<span class="number">400</span>,<span class="number">100</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181105/3-1Q10510492HC.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h2><p>JRadioButton 类的常用构造方法如下。</p>
+<ul>
+<li>JRadioButton()：创建一个初始化为未选择的单选按钮，其文本未设定。</li>
+<li>JRadioButton(Icon icon)：创建一个初始化为未选择的单选按钮，其具有指定的图像但无文本。</li>
+<li>JRadioButton(Icon icon,boolean selected)：创建一个具有指定图像和选择状态的单选按钮，但无文本。</li>
+<li>JRadioButton(String text)：创建一个具有指定文本但未选择的单选按钮。</li>
+<li>JRadioButton(String text,boolean selected)：创建一个具有指定文本和选择状态的单选按钮。</li>
+<li>JRadioButton(String text,Icon icon)：创建一个具有指定的文本和图像并初始化为未选择的单选按钮。</li>
+<li>JRadioButton(String text,Icon icon,boolean selected)：创建一个具有指定的文本、图像和选择状态的单选按钮。</li>
+</ul>
+<p>使用 JFrame 组件创建一个窗口，然后使用 JRadioButton 类创建一个选择季节的单选按钮组</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JRadioButtonDemo</span> </span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] agrs)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        JFrame frame=<span class="keyword">new</span> JFrame(<span class="string">"Java单选组件示例"</span>);    <span class="comment">//创建Frame窗口</span></span><br><span class="line">        JPanel panel=<span class="keyword">new</span> JPanel();    <span class="comment">//创建面板</span></span><br><span class="line">        JLabel label1=<span class="keyword">new</span> JLabel(<span class="string">"现在是哪个季节："</span>);</span><br><span class="line">        JRadioButton rb1=<span class="keyword">new</span> JRadioButton(<span class="string">"春天"</span>);    <span class="comment">//创建JRadioButton对象</span></span><br><span class="line">        JRadioButton rb2=<span class="keyword">new</span> JRadioButton(<span class="string">"夏天"</span>);    <span class="comment">//创建JRadioButton对象</span></span><br><span class="line">        JRadioButton rb3=<span class="keyword">new</span> JRadioButton(<span class="string">"秋天"</span>,<span class="keyword">true</span>);    <span class="comment">//创建JRadioButton对象</span></span><br><span class="line">        JRadioButton rb4=<span class="keyword">new</span> JRadioButton(<span class="string">"冬天"</span>);    <span class="comment">//创建JRadioButton对象</span></span><br><span class="line">        label1.setFont(<span class="keyword">new</span> Font(<span class="string">"楷体"</span>,Font.BOLD,<span class="number">16</span>));    <span class="comment">//修改字体样式</span></span><br><span class="line">        ButtonGroup group=<span class="keyword">new</span> ButtonGroup();</span><br><span class="line">        <span class="comment">//添加JRadioButton到ButtonGroup中</span></span><br><span class="line">        group.add(rb1);</span><br><span class="line">        group.add(rb2);</span><br><span class="line">        panel.add(label1);</span><br><span class="line">        panel.add(rb1);</span><br><span class="line">        panel.add(rb2);</span><br><span class="line">        panel.add(rb3);</span><br><span class="line">        panel.add(rb4);</span><br><span class="line">        frame.add(panel);</span><br><span class="line">        frame.setBounds(<span class="number">300</span>, <span class="number">200</span>, <span class="number">400</span>, <span class="number">100</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181105/3-1Q105110630Z5.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="下拉列表"><a href="#下拉列表" class="headerlink" title="下拉列表"></a>下拉列表</h2><p>下拉列表的特点是将多个选项折叠在一起，只显示最前面的或被选中的一个</p>
+<p>下拉列表由 JComboBox 类实现，常用构造方法如下。</p>
+<ul>
+<li>JComboBox()：创建一个空的 JComboBox 对象。</li>
+<li>JComboBox(ComboBoxModel aModel)：创建一个 JComboBox，其选项取自现有的 ComboBoxModel。</li>
+<li>JComboBox(Object[] items)：创建包含指定数组中元素的 JComboBox。</li>
+</ul>
+<p>JComboBox 类提供了多个成员方法用于操作下拉列表框中的项，如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void addItem(Object anObject)</td>
+<td>将指定的对象作为选项添加到下拉列表框中</td>
+</tr>
+<tr>
+<td>void insertItemAt(Object anObject,int index)</td>
+<td>在下拉列表框中的指定索引处插入项</td>
+</tr>
+<tr>
+<td>void removeltem(0bject anObject)</td>
+<td>在下拉列表框中删除指定的对象项</td>
+</tr>
+<tr>
+<td>void removeItemAt(int anlndex)</td>
+<td>在下拉列表框中删除指定位置的对象项</td>
+</tr>
+<tr>
+<td>void removeAllItems()</td>
+<td>从下拉列表框中删除所有项</td>
+</tr>
+<tr>
+<td>int getItemCount()</td>
+<td>返回下拉列表框中的项数</td>
+</tr>
+<tr>
+<td>Object getItemAt(int index)</td>
+<td>获取指定索引的列表项，索引从 0 开始</td>
+</tr>
+<tr>
+<td>int getSelectedIndex()</td>
+<td>获取当前选择的索引</td>
+</tr>
+<tr>
+<td>Object getSelectedltem()</td>
+<td>获取当前选择的项</td>
+</tr>
+</tbody></table>
+<p>JComboBox 能够响应 ItemEvent 事件和 ActionEvent 事件，其中 ItemEvent 触发的时机是当下拉列表框中的所选项更改时，ActionEvent 触发的时机是当用户在 JComboBox 上直接输入选择项并回车时。要处理这两个事件，需要创建相应的事件类并实现 ItemListener 接口和 ActionListener 接口。</p>
+<p>使用 JFrame 组件创建一个窗口，然后使用 JComboBox 类创建一个包含4个选项的下拉列表框。具体实现代码如下：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JComboBoxDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame(<span class="string">"Java下拉列表组件示例"</span>);</span><br><span class="line">        JPanel jp = <span class="keyword">new</span> JPanel();    <span class="comment">//创建面板</span></span><br><span class="line">        JLabel label1 = <span class="keyword">new</span> JLabel(<span class="string">"证件类型："</span>);    <span class="comment">//创建标签</span></span><br><span class="line">        JComboBox cmb = <span class="keyword">new</span> JComboBox();    <span class="comment">//创建JComboBox</span></span><br><span class="line">        cmb.addItem(<span class="string">"--请选择--"</span>);    <span class="comment">//向下拉列表中添加一项</span></span><br><span class="line">        cmb.addItem(<span class="string">"身份证"</span>);</span><br><span class="line">        cmb.addItem(<span class="string">"驾驶证"</span>);</span><br><span class="line">        cmb.addItem(<span class="string">"军官证"</span>);</span><br><span class="line">        jp.add(label1);</span><br><span class="line">        jp.add(cmb);</span><br><span class="line">        frame.add(jp);</span><br><span class="line">        frame.setBounds(<span class="number">300</span>, <span class="number">200</span>, <span class="number">400</span>, <span class="number">100</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181105/3-1Q105112T1325.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="列表框"><a href="#列表框" class="headerlink" title="列表框"></a>列表框</h2><p>列表框与下拉列表的区别不仅仅表现在外观上，当激活下拉列表时，会出现下拉列表框中的内容。但列表框只是在窗体系上占据固定的大小，如果需要列表框具有滚动效果，可以将列表框放到滚动面板中。当用户选择列表框中的某一项时，按住 Shift 键并选择列表框中的其他项目，可以连续选择两个选项之间的所有项目，也可以按住 Ctrl 键选择多个项目。</p>
+<p><a href="http://c.biancheng.net/swing/" target="_blank" rel="noopener">Swing</a> 中使用 JList 类来表示列表框，该类的常用构造方法如下。</p>
+<ul>
+<li>JList()：构造一个空的只读模型的列表框。</li>
+<li>JList(ListModel dataModel)：根据指定的非 null 模型对象构造一个显示元素的列表框。</li>
+<li>JList(Object[] listData)：使用 listData 指定的元素构造—个列表框。</li>
+<li>JList(Vector&lt;?&gt; listData)：使用 listData 指定的元素构造一个列表框。</li>
+</ul>
+<p>上述的第一个构造方法没有参数，使用此方法创建列表框后可以使用 setListData() 方法对列表框的元素进行填充，也可以调用其他形式的构造方法在初始化时对列表框的元素进行填充。常用的元素类型有 3 种，分别是数组、Vector 对象和 ListModel 模型。</p>
+<p>用 JFmme 组件创建一个窗口，然后使用 JList 类创建一个包含3个选项的列表框。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JListDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame(<span class="string">"Java列表框组件示例"</span>);</span><br><span class="line">        JPanel jp = <span class="keyword">new</span> JPanel();    <span class="comment">//创建面板</span></span><br><span class="line">        JLabel label1 = <span class="keyword">new</span> JLabel(<span class="string">"证件类型："</span>);    <span class="comment">//创建标签</span></span><br><span class="line">        String[] items = <span class="keyword">new</span> String[]{<span class="string">"身份证"</span>, <span class="string">"驾驶证"</span>, <span class="string">"军官证"</span>};</span><br><span class="line">        JList list = <span class="keyword">new</span> JList(items);    <span class="comment">//创建JList</span></span><br><span class="line">        jp.add(label1);</span><br><span class="line">        jp.add(list);</span><br><span class="line">        frame.add(jp);</span><br><span class="line">        frame.setBounds(<span class="number">300</span>, <span class="number">200</span>, <span class="number">400</span>, <span class="number">100</span>);</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181105/3-1Q105130132626.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
+    <title>1419908068@qq.com/245CFB617F6F4B7AB654612965BA0A54/Java线程</title>
+    <url>/blog/posts/7ebe9793/</url>
+    <content><![CDATA[<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>同时执行多个操作的“思想”叫做<code>并发</code>，在并发中完成的每一件事成为<code>线程</code>。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181030/3-1Q030134054609.jpg" alt="单线程和多线程执行模式" title="">
+                </div>
+                <div class="image-caption">单线程和多线程执行模式</div>
+            </figure>
+
+<h1 id="多线程实现方式"><a href="#多线程实现方式" class="headerlink" title="多线程实现方式"></a>多线程实现方式</h1><p>实现多线程编程的方式主要有两种：继承Thread类，实现runnable接口</p>
+<h2 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h2><p><strong>例1：</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="comment">//创建子线程</span></span><br><span class="line">    NewThread() {</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"Demo Thread"</span>);</span><br><span class="line">        System.out.println(<span class="string">"子线程："</span> + <span class="keyword">this</span>);</span><br><span class="line">        start(); <span class="comment">// 开始线程</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{ <span class="comment">//重写run方法</span></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">                System.out.println(<span class="string">"子线程："</span> + i);</span><br><span class="line">                Thread.sleep(<span class="number">50</span>); <span class="comment">//线程休眠</span></span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            System.out.println(<span class="string">"子线程中断。"</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">"退出子线程。"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest01</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">new</span> NewThread(); <span class="comment">// 创建一个主线程</span></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">                System.out.println(<span class="string">"主线程："</span>+i);</span><br><span class="line">                Thread.sleep(<span class="number">100</span>);</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            System.out.println(<span class="string">"主线程中断。"</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">"退出主线程。"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>延时调用线程的方法又称为异步调用。</p>
+<p>运行结果如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">子线程：Thread[Demo Thread,5,main]</span><br><span class="line">主线程：0</span><br><span class="line">子线程：0</span><br><span class="line">子线程：1</span><br><span class="line">主线程：1</span><br><span class="line">子线程：2</span><br><span class="line">子线程：3</span><br><span class="line">主线程：2</span><br><span class="line">子线程：4</span><br><span class="line">退出子线程。</span><br><span class="line">主线程：3</span><br><span class="line">主线程：4</span><br><span class="line">退出主线程。</span><br></pre></td></tr></tbody></table></figure>
+
+<p>分析：先运行的是主线程，但由于休眠时间不同，子线程先退出，但是能看出两个线程是同时运行的。在调用start方法的时候，Java虚拟机会自动调用该线程的run方法。</p>
+<p>注意：如果 start() 方法调用一个已经启动的线程，系统将会抛出 IllegalThreadStateException 异常。</p>
+<p>下表列出了Thread类的一些重要方法：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>序号</strong></th>
+<th align="center"><strong>方法描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="center"><strong>public void start()</strong>  使该线程开始执行；<strong>Java</strong> 虚拟机调用该线程的 run 方法。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="center"><strong>public void run()</strong>  如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run 方法；否则，该方法不执行任何操作并返回。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="center"><strong>public final void setName(String name)</strong>  改变线程名称，使之与参数 name 相同。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="center"><strong>public final void setPriority(int priority)</strong>   更改线程的优先级。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="center"><strong>public final void setDaemon(boolean on)</strong>  将该线程标记为守护线程或用户线程。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="center"><strong>public final void join(long millisec)</strong>  等待该线程终止的时间最长为 millis 毫秒。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="center"><strong>public void interrupt()</strong>  中断线程。</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="center"><strong>public final boolean isAlive()</strong>  测试线程是否处于活动状态。</td>
+</tr>
+</tbody></table>
+<p>测试线程是否处于活动状态。 上述方法是被Thread对象调用的。下面的方法是Thread类的静态方法。</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>序号</strong></th>
+<th align="center"><strong>方法描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="center"><strong>public static void yield()</strong>  暂停当前正在执行的线程对象，并执行其他线程。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="center"><strong>public static void sleep(long millisec)</strong>  在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="center"><strong>public static boolean holdsLock(Object x)</strong>  当且仅当当前线程在指定的对象上保持监视器锁时，才返回 true。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="center"><strong>public static Thread currentThread()</strong>  返回对当前正在执行的线程对象的引用。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="center"><strong>public static void dumpStack()</strong>  将当前线程的堆栈跟踪打印至标准错误流。</td>
+</tr>
+</tbody></table>
+<p>除了异步调用之外，同步执行线程 start() 方法的顺序不代表线程启动的顺序。下面创建一个案例演示同步线程的调用。</p>
+<p><strong>例2</strong>：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewThread2</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    NewThread2(<span class="keyword">int</span> i) {</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.i = i;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"线程："</span> + i);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest02</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        NewThread2 t11 = <span class="keyword">new</span> NewThread2(<span class="number">1</span>);</span><br><span class="line">        NewThread2 t12 = <span class="keyword">new</span> NewThread2(<span class="number">2</span>);</span><br><span class="line">        NewThread2 t13 = <span class="keyword">new</span> NewThread2(<span class="number">3</span>);</span><br><span class="line">        NewThread2 t14 = <span class="keyword">new</span> NewThread2(<span class="number">4</span>);</span><br><span class="line">        NewThread2 t15 = <span class="keyword">new</span> NewThread2(<span class="number">5</span>);</span><br><span class="line">        NewThread2 t16 = <span class="keyword">new</span> NewThread2(<span class="number">6</span>);</span><br><span class="line">        NewThread2 t17 = <span class="keyword">new</span> NewThread2(<span class="number">7</span>);</span><br><span class="line">        NewThread2 t18 = <span class="keyword">new</span> NewThread2(<span class="number">8</span>);</span><br><span class="line">        NewThread2 t19 = <span class="keyword">new</span> NewThread2(<span class="number">9</span>);</span><br><span class="line">        NewThread2 t110 = <span class="keyword">new</span> NewThread2(<span class="number">10</span>);</span><br><span class="line">        t11.start();</span><br><span class="line">        t12.start();</span><br><span class="line">        t13.start();</span><br><span class="line">        t14.start();</span><br><span class="line">        t15.start();</span><br><span class="line">        t16.start();</span><br><span class="line">        t17.start();</span><br><span class="line">        t18.start();</span><br><span class="line">        t19.start();</span><br><span class="line">        t110.start();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>程序运行后的结果如下所示，从运行结果中可以看到，虽然调用时数字是有序的，但是由于线程执行的随机性，导致输出的数字是无序的，而且每次顺序都不一样。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">线程：1</span><br><span class="line">线程：2</span><br><span class="line">线程：3</span><br><span class="line">线程：4</span><br><span class="line">线程：5</span><br><span class="line">线程：6</span><br><span class="line">线程：8</span><br><span class="line">线程：7</span><br><span class="line">线程：10</span><br><span class="line">线程：9</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h2><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewThread3</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>{</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"runnable运行。"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest03</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        NewThread3 runnable = <span class="keyword">new</span> NewThread3();</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(runnable);</span><br><span class="line">        thread1.start();</span><br><span class="line">        System.out.println(<span class="string">"线程运行结束。"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">线程运行结束。</span><br><span class="line">runnable运行。</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="两种方法的比较"><a href="#两种方法的比较" class="headerlink" title="两种方法的比较"></a>两种方法的比较</h2><p>虽然 Thread 类和 Runnable 接口都可以创建线程，但是它们也都有各自的优缺点。</p>
+<p><strong>1. 继承 Thread 类的优缺点</strong></p>
+<p>当一个 run() 方法体现在继承 Thread 类中时，可以用 this 指向实际控制运行的 Thread 实例。因此，代码不需要使用以下控制语句：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">Thread.currenThread().sleep();</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>不再使用上面的控制语句，而是可以简单地使用 Threadsleep() 方法，继承 Thread 类的方式使代码变得简单易读。</p>
+<p><strong>2. 实现 Runnable 接口的优缺点</strong></p>
+<p>从面向对象的角度来看，Thread 类是一个虚拟处理机严格的封装，因此只有当处理机模型修改或扩展时，才应该继承该类。由于 Java 技术只允许单一继承，因此如果已经继承了 Thread 类，就不能再继承其他任何类，这会使用户只能采用实现 Runnable 接口的方式创建线程。</p>
+<h1 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h1><p>线程也具有生命周期，主要包括 7 种状态，分别是出生状态、就绪状态、运行状态、等待状态、休眠状态、阻塞状态和死亡状态，如图所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181030/3-1Q0301JP1Z2.jpg" alt="线程生命周期" title="">
+                </div>
+                <div class="image-caption">线程生命周期</div>
+            </figure>
+
+<ol>
+<li>新建状态：用户在创建线程时所处的状态，在用户使用该线程实例调用 start() 方法之前，线程都处于出生状态。</li>
+<li>就绪状态：也称可执行状态，当用户调用 start() 方法之后，线程处于就绪状态。</li>
+<li>运行状态：当线程得到系统资源后进入运行状态。</li>
+<li>等待状态：当处于运行状态下的线程调用 Thread 类的 wait() 方法时，该线程就会进入等待状态。进入等待状态的线程必须调用 Thread 类的 notify() 方法才能被唤醒。notifyAll() 方法是将所有处于等待状态下的线程唤醒。</li>
+<li>休眠状态：当线程调用 Thread 类中的 sleep() 方法时，则会进入休眠状态。</li>
+<li>阻塞状态：如果一个线程在运行状态下发出输入/输出请求，该线程将进入阻塞状态，在其等待输入/输出结束时，线程进入就绪状态。对阻塞的线程来说，即使系统资源关闭，线程依然不能回到运行状态。</li>
+<li>死亡状态：当线程的 run() 方法执行完毕，线程进入死亡状态。</li>
+</ol>
+<p>提示：一旦线程进入可执行状态，它会在就绪状态与运行状态下辗转，同时也可能进入等待状态、休眠状态、阻塞状态或死亡状态。</p>
+<h1 id="线程之间变量的访问"><a href="#线程之间变量的访问" class="headerlink" title="线程之间变量的访问"></a>线程之间变量的访问</h1><p>自定义线程类中的实例变量针对其他线程可以有共享与不共享之分，这在多个线程之间进行交互时是很重要的一个技术点。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181031/3-1Q031092410618.jpg" alt="线程之间不共享数据实例图" title="">
+                </div>
+                <div class="image-caption">线程之间不共享数据实例图</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181031/3-1Q0310925415K.jpg" alt="线程间共享数据示例图" title="">
+                </div>
+                <div class="image-caption">线程间共享数据示例图</div>
+            </figure>
+
+<p>在不共享数据时每个线程都拥有自己作用域的变量，且多个线程之间相同变量名的值也不相同。下面创建一个示例演示这种特性。</p>
+<p><strong>例1</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread04</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyThread04</span><span class="params">(String name)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.setName(name);<span class="comment">//设置线程名称</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.run();</span><br><span class="line">        <span class="keyword">while</span> (count &gt; <span class="number">0</span>) {</span><br><span class="line">            count--;</span><br><span class="line">            System.out.println(<span class="string">"由 "</span> + <span class="keyword">this</span>.currentThread().getName() + <span class="string">" 计算，count="</span> + count);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest04</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MyThread04 a = <span class="keyword">new</span> MyThread04(<span class="string">"A"</span>);</span><br><span class="line">        MyThread04 b = <span class="keyword">new</span> MyThread04(<span class="string">"B"</span>);</span><br><span class="line">        MyThread04 c = <span class="keyword">new</span> MyThread04(<span class="string">"C"</span>);</span><br><span class="line">        a.start();</span><br><span class="line">        b.start();</span><br><span class="line">        c.start();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>序一共创建了 3 个线程，每个线程都有各自的 count 变量，自己减少自己的 count 变量的值。这样的情况就是变量不共享，此实例并不存在多个线程访问同一个实例变量的情况。</p>
+<p>结果：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">由 B 计算，count=4</span><br><span class="line">由 B 计算，count=3</span><br><span class="line">由 B 计算，count=2</span><br><span class="line">由 B 计算，count=1</span><br><span class="line">由 B 计算，count=0</span><br><span class="line">由 A 计算，count=4</span><br><span class="line">由 A 计算，count=3</span><br><span class="line">由 A 计算，count=2</span><br><span class="line">由 A 计算，count=1</span><br><span class="line">由 A 计算，count=0</span><br><span class="line">由 C 计算，count=4</span><br><span class="line">由 C 计算，count=3</span><br><span class="line">由 C 计算，count=2</span><br><span class="line">由 C 计算，count=1</span><br><span class="line">由 C 计算，count=0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果想实现多个线程共同对一个变量进行操作的目的，该如何设计代码呢？这时就必须使用共享数据的方案。共享数据的情况就是多个线程可以访问同一个变量，比如在实现投票功能的软件时，多个线程可以同时处理同一个人的票数。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread04</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.run();</span><br><span class="line">        <span class="comment">//此示例不要用for语句，因为使用同步后其他线程就得不到运行的机会了，</span></span><br><span class="line">        <span class="comment">//一直由一个线程进行减法运算</span></span><br><span class="line">        System.out.println(<span class="string">"由 "</span> + <span class="keyword">this</span>.currentThread().getName() + <span class="string">" 计算，count="</span> + count);</span><br><span class="line">        count--;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest04</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MyThread04 mythread = <span class="keyword">new</span> MyThread04();</span><br><span class="line">        Thread a = <span class="keyword">new</span> Thread(mythread, <span class="string">"A"</span>);</span><br><span class="line">        Thread b = <span class="keyword">new</span> Thread(mythread, <span class="string">"B"</span>);</span><br><span class="line">        Thread c = <span class="keyword">new</span> Thread(mythread, <span class="string">"C"</span>);</span><br><span class="line">        Thread d = <span class="keyword">new</span> Thread(mythread, <span class="string">"D"</span>);</span><br><span class="line">        Thread e = <span class="keyword">new</span> Thread(mythread, <span class="string">"E"</span>);</span><br><span class="line">        a.start();</span><br><span class="line">        b.start();</span><br><span class="line">        c.start();</span><br><span class="line">        d.start();</span><br><span class="line">        e.start();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">由 B 计算，count=5</span><br><span class="line">由 A 计算，count=5</span><br><span class="line">由 C 计算，count=3</span><br><span class="line">由 D 计算，count=2</span><br><span class="line">由 E 计算，count=1</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里发现A和B出现了相同的值，这就是<code>非线程安全</code>，在方法面前添加<code>synchronized</code>修饰。</p>
+<p>修改run方法：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">synchronized</span>  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>{ </span><br><span class="line">       <span class="keyword">super</span>.run();</span><br><span class="line">       <span class="comment">//此示例不要用for语句，因为使用同步后其他线程就得不到运行的机会了， </span></span><br><span class="line">       <span class="comment">//一直由一个线程进行减法运算 </span></span><br><span class="line">       System.out.println(<span class="string">"由 "</span>+<span class="keyword">this</span>.currentThread().getName()+<span class="string">" 计算，count="</span>+count); </span><br><span class="line">       count--; </span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">由 B 计算，count=5</span><br><span class="line">由 A 计算，count=4</span><br><span class="line">由 D 计算，count=3</span><br><span class="line">由 C 计算，count=2</span><br><span class="line">由 E 计算，count=1</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="线程停止"><a href="#线程停止" class="headerlink" title="线程停止"></a>线程停止</h1><p>在 Java 中有以下 3 种方法可以终止正在运行的线程：</p>
+<ol>
+<li><p>使用退出标识，使线程正常退出，也就是当 run() 方法完成后线程终止。</p>
+</li>
+<li><p>使用 stop() 方法强行终止线程，但是不推荐使用这个方法，因为 stop() 和 suspend() 及 resume() 一样，都是作废过期的方法，使用它们可能产生不可预料的结果。</p>
+</li>
+<li><p>使用 interrupt() 方法中断线程。</p>
+</li>
+</ol>
+<p>interrupt() 方法的作用是用来停止线程，但 intermpt() 方法的使用效果并不像循环结构中 break 语句那样，可以马上停止循环。调用 intermpt() 方法仅仅是在当前线程中打了一个停止的标记，并不是真的停止线程。</p>
+<p>在介绍如何停止线程的知识点前，先来看一下如何判断线程的状态是不是停止的。在 Java 的 SDK 中，Thread.java 类里提供了两种方法。</p>
+<ol>
+<li><code>this.interrupted()</code>：测试当前线程是否已经中断。</li>
+<li><code>this.islnterrupted()</code>：测试线程是否已经中断。</li>
+</ol>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.xml.internal.ws.encoding.MtomCodec;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread5</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.run();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) {</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest05</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MyThread5 thread5 = <span class="keyword">new</span> MyThread5();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            thread5.start();</span><br><span class="line">            Thread.sleep(<span class="number">10</span>);</span><br><span class="line">            Thread.currentThread().interrupt();</span><br><span class="line">            System.out.println(<span class="string">"是否停止1？="</span> + thread5.interrupted());</span><br><span class="line">            System.out.println(<span class="string">"是否停止2？="</span> + thread5.interrupted());</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"end!"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">是否停止1？=true</span><br><span class="line">是否停止2？=false</span><br><span class="line">end!</span><br></pre></td></tr></tbody></table></figure>
+
+<p>从上述的结果来看，intermpted() 方法的确用来判断出当前线程是不是停止状态。但为什么第二个布尔值是 false 呢？查看一下官方帮助文档中对 interrupted() 方法的解释如下（斜体显示）：<br>测试当前线程是否已经中断。线程的中断状态由该方法清除。换句话说，如果连续两次调用该方法，则第二次调用将返回 false（在第一次调用已清除了其中断状态之后，且第二次调用检验完中断状态前，当前线程再次中断的情况除外）。</p>
+<p>文档已经解释得很详细，intermpted() 方法具有清除状态的功能，所以第二次调用 interrupted() 方法返回的值是 false。</p>
+<p>再来看一下 isInterrupted() 方法。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.xml.internal.ws.encoding.MtomCodec;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread5</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.run();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) {</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest05</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MyThread5 thread5 = <span class="keyword">new</span> MyThread5();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            thread5.start();</span><br><span class="line">            Thread.sleep(<span class="number">5</span>);</span><br><span class="line">            thread5.interrupt();</span><br><span class="line">            System.out.println(<span class="string">"是否停止1？="</span> + thread5.isInterrupted());</span><br><span class="line">            System.out.println(<span class="string">"是否停止2？="</span> + thread5.isInterrupted());</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"end!"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">是否停止1？=true</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">是否停止2？=true</span><br><span class="line">end!</span><br></pre></td></tr></tbody></table></figure>
+
+<p>从程序的运行结果中可以看到，isInterrupted() 方法并未清除状态标识，所以打印了两个 true。经过上面示例的验证总结一下这两个方法。</p>
+<ol>
+<li>this.interrupted()：测试当前线程是否已经是中断状态，执行后具有将状态标识清除为 false 的功能。</li>
+<li>this.islnterrupted()：测试线程 Thread 对象是否已经是中断状态，但不清除状态标识。</li>
+</ol>
+<h2 id="异常法停止线程"><a href="#异常法停止线程" class="headerlink" title="异常法停止线程"></a><strong>异常法停止线程</strong></h2><p>用 for 语句来判断线程是否为停止状态，如果是停止状态，则后面的代码不再运行。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.xml.internal.ws.encoding.MtomCodec;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread5</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.run();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">1000</span>; i++) {</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.interrupted()){</span><br><span class="line">                System.out.println(<span class="string">"停止了，现在我不运行了"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest05</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MyThread5 thread5 = <span class="keyword">new</span> MyThread5();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            thread5.start();</span><br><span class="line">            Thread.sleep(<span class="number">2</span>);</span><br><span class="line">            thread5.interrupt(); <span class="comment">//停止线程</span></span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"end!"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">end!</span><br><span class="line">停止了，现在我不运行了</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上述代码启动线程后延时 2毫秒，之后将线程停止。但是上述代码知识停止了for语句，并未停止整个线程，可以通过下面代码实验一下，修改run方法：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">super</span>.run();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">1000</span>; i++) {</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.interrupted()){</span><br><span class="line">            System.out.println(<span class="string">"停止了，现在我不运行了"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        System.out.println(i);</span><br><span class="line">    }</span><br><span class="line">    System.out.println(<span class="string">"线程并未停止。"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">停止了，现在我不运行了</span><br><span class="line">线程并未停止。</span><br><span class="line">end!</span><br></pre></td></tr></tbody></table></figure>
+
+<p>下面才是真正的使用异常停止线程，修改run方法：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">     <span class="keyword">super</span>.run();</span><br><span class="line">     <span class="keyword">try</span> {</span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">1000</span>; i++) {</span><br><span class="line">             <span class="keyword">if</span> (<span class="keyword">this</span>.interrupted()) {</span><br><span class="line">                 System.out.println(<span class="string">"停止了，现在我不运行了"</span>);</span><br><span class="line">                 <span class="keyword">throw</span> <span class="keyword">new</span> InterruptedException();</span><br><span class="line">             }</span><br><span class="line">             System.out.println(i);</span><br><span class="line">         }</span><br><span class="line">         System.out.println(<span class="string">"for下面。"</span>);</span><br><span class="line">     } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">         System.out.println(<span class="string">"进run方法中的catch了！"</span>);</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">     }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">end!</span><br><span class="line">1</span><br><span class="line">停止了，现在我不运行了</span><br><span class="line">进run方法中的catch了！</span><br><span class="line">java.lang.InterruptedException</span><br><span class="line">	at com.org.test.MyThread5.run(ThreadTest05.java:12)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="在休眠中停止"><a href="#在休眠中停止" class="headerlink" title="在休眠中停止"></a>在休眠中停止</h2><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.xml.internal.ws.encoding.MtomCodec;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest05</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MyThread0501 thread5 = <span class="keyword">new</span> MyThread0501();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            thread5.start();</span><br><span class="line">            Thread.sleep(<span class="number">2</span>);</span><br><span class="line">            thread5.interrupt(); <span class="comment">//停止线程</span></span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"end!"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread0501</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>{</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.run();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            System.out.println(<span class="string">"运行"</span>);</span><br><span class="line">            Thread.sleep(<span class="number">200000</span>);</span><br><span class="line">            System.out.println(<span class="string">"结束运行"</span>);</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            System.out.println(<span class="string">"在休眠中被停止!进入catch!"</span>+<span class="keyword">this</span>.isInterrupted());</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">运行</span><br><span class="line">end!</span><br><span class="line">在休眠中被停止!进入catch!false</span><br><span class="line">java.lang.InterruptedException: sleep interrupted</span><br><span class="line">	at java.lang.Thread.sleep(Native Method)</span><br><span class="line">	at com.org.test.MyThread0501.run(ThreadTest05.java:45)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="强制停止"><a href="#强制停止" class="headerlink" title="强制停止"></a>强制停止</h2><p>调用 stop() 方法可以在任意情况下强制停止一个线程。下面通过一个案例来演示 stop() 停止线程的方法。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.xml.internal.ws.encoding.MtomCodec;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest05</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        MyThread0502 thread5 = <span class="keyword">new</span> MyThread0502();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            thread5.start();</span><br><span class="line">            Thread.sleep(<span class="number">8000</span>);</span><br><span class="line">            thread5.stop();<span class="comment">//停止线程</span></span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"end!"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread0502</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">                i++;</span><br><span class="line">                System.out.println(<span class="string">"i="</span> + i);</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            <span class="comment">//TODO Auto-generated catch block</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">i=1</span><br><span class="line">i=2</span><br><span class="line">i=3</span><br><span class="line">i=4</span><br><span class="line">i=5</span><br><span class="line">i=6</span><br><span class="line">i=7</span><br><span class="line">i=8</span><br><span class="line">end!</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
+    <title>1419908068@qq.com/0A322D492005437D9B6554F1CEBA940E/Java线程</title>
+    <url>/blog/posts/80d925d3/</url>
+    <content><![CDATA[<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>同时执行多个操作的“思想”叫做<code>并发</code>，在并发中完成的每一件事成为<code>线程</code>。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://c.biancheng.net/uploads/allimg/181030/3-1Q030134054609.jpg" alt="单线程和多线程执行模式" title="">
+                </div>
+                <div class="image-caption">单线程和多线程执行模式</div>
+            </figure>
+
+<h1 id="多线程实现方式"><a href="#多线程实现方式" class="headerlink" title="多线程实现方式"></a>多线程实现方式</h1><p>实现多线程编程的方式主要有两种：继承Thread类，实现runnable接口</p>
+<h2 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h2><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.org.test;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="comment">//创建子线程</span></span><br><span class="line">    NewThread() {</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"Demo Thread"</span>);</span><br><span class="line">        System.out.println(<span class="string">"子线程："</span> + <span class="keyword">this</span>);</span><br><span class="line">        start(); <span class="comment">// 开始线程</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">                System.out.println(<span class="string">"子线程："</span> + i);</span><br><span class="line">                Thread.sleep(<span class="number">50</span>); <span class="comment">//线程休眠</span></span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            System.out.println(<span class="string">"子线程中断。"</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">"退出子线程。"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest01</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">new</span> NewThread(); <span class="comment">// 创建一个主线程</span></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">                System.out.println(<span class="string">"主线程："</span>+i);</span><br><span class="line">                Thread.sleep(<span class="number">100</span>);</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">            System.out.println(<span class="string">"主线程中断。"</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">"退出主线程。"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>运行结果如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">子线程：Thread[Demo Thread,5,main]</span><br><span class="line">主线程：0</span><br><span class="line">子线程：0</span><br><span class="line">子线程：1</span><br><span class="line">主线程：1</span><br><span class="line">子线程：2</span><br><span class="line">子线程：3</span><br><span class="line">主线程：2</span><br><span class="line">子线程：4</span><br><span class="line">退出子线程。</span><br><span class="line">主线程：3</span><br><span class="line">主线程：4</span><br><span class="line">退出主线程。</span><br></pre></td></tr></tbody></table></figure>
+
+<p>分析：先运行的是主线程，但由于休眠时间不同，子线程先退出，但是能看出两个线程是同时运行的。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
     <title>Vue.js--基于webpack项目的使用</title>
     <url>/blog/posts/6c87d575/</url>
     <content><![CDATA[<center>Vue CLI 教程</center>
