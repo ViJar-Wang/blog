@@ -6,13 +6,13 @@
     
     
     
-    <title>ℳr. Wang | 四捌</title>
+    <title>Maven | ℳr. Wang | 四捌</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
     
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Maven">
 
     
 
@@ -39,13 +39,15 @@
 
 
 
-    <meta name="description" content="我的描述">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ℳr. Wang">
-<meta property="og:url" content="https:&#x2F;&#x2F;vijar-wang.github.io&#x2F;blog&#x2F;index.html">
+    <meta name="description" content="Maven安装Maven下载地址http:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi Maven配置环境变量添加M2_HOME和MAVEN_HOME到PATH中 验证安装1mvn -version  Maven本地资源库在文件%MAVEM_HOME%&#x2F;conf&#x2F;setting.xml中 更新localRepository 1&amp;lt;localRepository&amp;gt;D:\P">
+<meta name="keywords" content="Maven">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven">
+<meta property="og:url" content="https:&#x2F;&#x2F;vijar-wang.github.io&#x2F;blog&#x2F;posts&#x2F;7273cdc&#x2F;index.html">
 <meta property="og:site_name" content="ℳr. Wang">
-<meta property="og:description" content="我的描述">
+<meta property="og:description" content="Maven安装Maven下载地址http:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi Maven配置环境变量添加M2_HOME和MAVEN_HOME到PATH中 验证安装1mvn -version  Maven本地资源库在文件%MAVEM_HOME%&#x2F;conf&#x2F;setting.xml中 更新localRepository 1&amp;lt;localRepository&amp;gt;D:\P">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-08-13T12:51:01.968Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" type="application/atom+xml" title="ℳr. Wang" href="/blog/atom.xml">
@@ -83,7 +85,7 @@
     <div class="scroll-wrap flex-col">
       <ul class="nav">
         
-              <li class="waves-block waves-effect active">
+              <li class="waves-block waves-effect">
                   <a href="/blog/"  >
                     <i class="icon icon-lg icon-home"></i>
                     <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
@@ -147,7 +149,7 @@
         <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">ℳr. Wang</div>
+        <div class="flex-col header-title ellipsis">Maven</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -164,19 +166,16 @@
         </a>
     </div>
 </header>
-<header class="content-header index-header">
+<header class="content-header post-header">
     
     
     <div class="container fade-scale">
         <div id="myheader">
             <h1 class="title">
-                 
-                    ℳr. Wang
                 
             </h1>
             <h5 class="subtitle">
                 
-                    我也许微不足道，我相信我注定为人所爱
                 
             </h5>
         </div>
@@ -184,71 +183,48 @@
 
 </header>
 
+
 <div class="container body-wrap">
-    <ul class="post-list">
     
-        <li class="post-list-item fade">
-            <article id="post-HelloWorld"
-  class="article-card article-type-post" itemprop="blogPost">
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Maven安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">Maven安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Maven下载地址"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Maven下载地址</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Maven配置环境变量"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Maven配置环境变量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#验证安装"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">验证安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Maven本地资源库"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Maven本地资源库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Maven中央储存库"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Maven中央储存库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Maven远程储存库"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Maven远程储存库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Maven依赖机制"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Maven依赖机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Maven手动添加jar包到本地资源库"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Maven手动添加jar包到本地资源库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Maven-POM"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">Maven POM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#POM例子"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">POM例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Maven外部依赖"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">Maven外部依赖</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Maven"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
-    
+    <div class="post-card">
+        <h1 class="post-card-title">Maven</h1>
+        <div class="post-meta">
+					
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2020-08-13 20:45:52" datetime="2020-08-13T12:45:52.000Z"  itemprop="datePublished">2020-08-13</time>
+
+            <br id="mybreak"/>
+            
+<script>
+	mybreak.style="display:none";
+</script>
 
 
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/ef0eea94/">他来了，他带着自己的博客来啦</a>
-    </h3>
-  
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
 
 
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2119-12-02 20:49:43" datetime="2119-12-02T12:49:43.000Z"  itemprop="datePublished">2119-12-02</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <center>在这里我介绍一下我的博客</center>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/ef0eea94/" class="post-more waves-button">
-                阅读全文 »
-            </a>
         </div>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Maven"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/7273cdc/">Maven</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-13 20:45:52" datetime="2020-08-13T12:45:52.000Z"  itemprop="datePublished">2020-08-13</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="Maven安装"><a href="#Maven安装" class="headerlink" title="Maven安装"></a>Maven安装</h2><h3 id="Maven下载地址"><a href="#Maven下载地址" class="headerlink" title="Maven下载地址"></a>Maven下载地址</h3><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Maven安装"><a href="#Maven安装" class="headerlink" title="Maven安装"></a>Maven安装</h2><h3 id="Maven下载地址"><a href="#Maven下载地址" class="headerlink" title="Maven下载地址"></a>Maven下载地址</h3><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
 <h4 id="Maven配置环境变量"><a href="#Maven配置环境变量" class="headerlink" title="Maven配置环境变量"></a>Maven配置环境变量</h4><p>添加<code>M2_HOME</code>和<code>MAVEN_HOME</code>到PATH中</p>
 <h4 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h4><figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -version</span><br></pre></td></tr></tbody></table></figure>
 
@@ -357,379 +333,153 @@
             document.body.appendChild(img);
           });
       </script>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/7273cdc/" class="post-more waves-button">
-                阅读全文 »
-            </a>
         </div>
-    </div>
-    
-    <div class="post-footer">
+
+        <blockquote class="post-copyright">
+    <div class="content">
         
+<span class="post-time">
+    最后更新: <time datetime="2020-08-13T12:51:01.968Z" itemprop="dateUpdated">2020-08-13 20:51:01</time>
+</span>
+
+
+        
+        原文链接：<a href="/blog/posts/7273cdc/" target="_blank" rel="external">https://vijar-wang.github.io/blog/posts/7273cdc/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='https://vijar-wang.github.io/blog'">
+            <img src="https://ViJar-Wang.github.io/blog/img/avatar.jpeg" alt="Mr. Wang">
+            <a>Mr. Wang</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;" target="_blank" rel="noopener"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
 	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Maven/" rel="tag">Maven</a></li></ul>
 
-    </div>
-    
-</article>
 
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Maven-Spring"
-  class="article-card article-type-post" itemprop="blogPost">
-
+            
+<div class="page-share-wrap">
     
 
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/1fbb5294/">使用Maven创建Spring项目</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-13 02:21:47" datetime="2020-08-12T18:21:47.000Z"  itemprop="datePublished">2020-08-13</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <center>学习maven搭建项目</center>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/1fbb5294/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Maven-spring/" rel="tag">-Maven -spring</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-VBS"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/96dc5c45/">Swing类库</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-06 21:05:41" datetime="2020-08-06T13:05:41.000Z"  itemprop="datePublished">2020-08-06</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>VBS全名：微软公司可视化BASIC语言脚本。VBS是系统内置的不需要下载任何软件即可开发。</p>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/96dc5c45/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-javaswing"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/fb30ce02/">Swing类库</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-06 21:05:41" datetime="2020-08-06T13:05:41.000Z"  itemprop="datePublished">2020-08-06</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <center>Java窗口化</center>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/fb30ce02/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-sqlStudy"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/6df95fa5/">SQL学习</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-12-25 19:26:16" datetime="2019-12-25T11:26:16.000Z"  itemprop="datePublished">2019-12-25</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <center>（Structured Query Language）结构化查询语言</center>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/6df95fa5/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/MySQL/" rel="tag">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-vuedoc"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/6c87d575/">Vue.js--基于webpack项目的使用</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-12-10 20:05:41" datetime="2019-12-10T12:05:41.000Z"  itemprop="datePublished">2019-12-10</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <center>Vue CLI 教程</center>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/6c87d575/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-vueStorage"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/10dd2acd/">Vue中localstorage和sessionstorage的使用</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-12-10 16:23:45" datetime="2019-12-10T08:23:45.000Z"  itemprop="datePublished">2019-12-10</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <center>Vue中使用LocalStorage和SessionStorage</center>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/10dd2acd/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-vuebuild"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/60aedc63/">Vue问题记录</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-12-10 15:36:30" datetime="2019-12-10T07:36:30.000Z"  itemprop="datePublished">2019-12-10</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <center>出问题？来看一下吧</center>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/60aedc63/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-JavaEmail"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/blog/posts/99746608/">Java邮件发送</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2019-12-09 16:07:05" datetime="2019-12-09T08:07:05.000Z"  itemprop="datePublished">2019-12-09</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <center>用JAVA来发送邮件吧</center>
-    
-        <div class="post-more-div">
-            <a href="/blog/posts/99746608/" class="post-more waves-button">
-                阅读全文 »
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java-%E5%AD%A6%E4%B9%A0/" rel="tag">-Java -学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://vijar-wang.github.io/blog/posts/7273cdc/&title=《Maven》 — ℳr. Wang&pic=https://ViJar-Wang.github.io/blog/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://vijar-wang.github.io/blog/posts/7273cdc/&title=《Maven》 — ℳr. Wang&source=我的描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://vijar-wang.github.io/blog/posts/7273cdc/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Maven》 — ℳr. Wang&url=https://vijar-wang.github.io/blog/posts/7273cdc/&via=https://vijar-wang.github.io/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://vijar-wang.github.io/blog/posts/7273cdc/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
     </ul>
+ </div>
+
+
+
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
 
     
-<nav id="page-nav">
-    <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">下一页</a>
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/blog/posts/ef0eea94/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：他来了，他带着自己的博客来啦
+        </h4>
+      </a>
     </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/blog/posts/1fbb5294/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：使用Maven创建Spring项目">下一篇：使用Maven创建Spring项目</h4>
+      </a>
+    </div>
+  
 </nav>
 
 
+
+    
+    
+
+    
+
+    
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "nVIieOwnsu1OCXQKzyP6MQdG-gzGzoHsz",
+            appKey: "Fz3XN4VhSI9A8cHX35gLXA1I",
+            avatar: "mm",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+</article>
+
 </div>
+
+<script type="text/javascript" src="https://cnfox.oss-cn-beijing.aliyuncs.com/icnfox/js/commentTyping.js"></script>
 
         <footer class="footer">
     <div class="footer-content">
@@ -774,6 +524,35 @@
 
     </main>
     
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/blog/blog/img/1-1P613130J6218.gif" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/blog/blog/img/wechart.jpg" data-alipay="/blog/blog/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
 			<div class="waifu">
 			    <div class="waifu-tips"></div>
 			    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
@@ -791,12 +570,58 @@
 <a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://vijar-wang.github.io/blog/posts/7273cdc/&title=《Maven》 — ℳr. Wang&pic=https://ViJar-Wang.github.io/blog/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://vijar-wang.github.io/blog/posts/7273cdc/&title=《Maven》 — ℳr. Wang&source=我的描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://vijar-wang.github.io/blog/posts/7273cdc/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Maven》 — ℳr. Wang&url=https://vijar-wang.github.io/blog/posts/7273cdc/&via=https://vijar-wang.github.io/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://vijar-wang.github.io/blog/posts/7273cdc/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aMW7DMAwF0Nz/0unaoVE+SbuA5KcpSBzbTwNBiny94vX+tT79ur4y+e/6ygsWBgbGtoz3cuXXVDdi/azyczEwMB7ASMLoGp+H5jV+/dyP32NgYGAUb11NFifPwsDAwEgKyzz45gkoBgYGRq+I7SVzSdF7QfGMgYFxNCM/LPv/z7f0NzAwMLZivIvr2tTwsrfCwMA4mpEHuDWpOoSRtzMLwx8YGBgPYPReJQ+RvYGMdWFc6I5iYGBsy+gdyue8aksyP/L7I8PFwMA4mpEc6/eK1TygF1qVyS0wMDAOYlRJk/P5q1qVX94QAwPjOEZ+uzw1vLZAjTYXAwPjaEY+YLH+pjoKVm1tjsYyMDAwjmDkRWyeafZCZG+bMDAwzmZUX7q3eglf4XgOAwPjAYxqETv5VzVwF4YtMDAwHsyYJIXVkN0sqjEwMI5m5EnbvNC9fWFgYBzNmB+Z5QMW96WYGBgYT2D0GpC9UYnJBpV7sBgYGEcw5qEwKXoLPdVeSoqBgfEARh5YkxCZHLE1j9XyRiYGBsYDGNVmQD5g0ctYv2wHBgbGoYzegFevtdA7nltvSqE7ioGBsS2j2hnsjWJUXyW/vozBwMDYlpEE2eQoLcdM2hJREYuBgXEoY1K4Vrdjjiz8gIGB8WBGdZBr0vjEwMDAuIoxSex6o2YXpIYYGBhbMSaH9cmDq83RG2txDAyMDRnV0nFems5HzUb9DQwMjJ0YP+plk2GZW68cAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
     <!-- waves按钮特效 -->
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
 <!-- 主题配置脚本 -->
 <script>
-var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: true };
 </script>
 
 <!-- jquery -->
