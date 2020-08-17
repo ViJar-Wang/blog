@@ -57,7 +57,11 @@
   <entry>
     <title>Maven</title>
     <url>/blog/posts/7273cdc/</url>
-    <content><![CDATA[<h2 id="Maven安装"><a href="#Maven安装" class="headerlink" title="Maven安装"></a>Maven安装</h2><h3 id="Maven下载地址"><a href="#Maven下载地址" class="headerlink" title="Maven下载地址"></a>Maven下载地址</h3><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
+    <content><![CDATA[<center>Maven</center>
+
+<a id="more"></a>
+
+<h2 id="Maven安装"><a href="#Maven安装" class="headerlink" title="Maven安装"></a>Maven安装</h2><h3 id="Maven下载地址"><a href="#Maven下载地址" class="headerlink" title="Maven下载地址"></a>Maven下载地址</h3><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
 <h4 id="Maven配置环境变量"><a href="#Maven配置环境变量" class="headerlink" title="Maven配置环境变量"></a>Maven配置环境变量</h4><p>添加<code>M2_HOME</code>和<code>MAVEN_HOME</code>到PATH中</p>
 <h4 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h4><figure class="highlight cmd"><table><tbody><tr><td class="code"><pre><span class="line">mvn -version</span><br></pre></td></tr></tbody></table></figure>
 
@@ -267,7 +271,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Swing类库</title>
+    <title>VBS</title>
     <url>/blog/posts/96dc5c45/</url>
     <content><![CDATA[<p>VBS全名：微软公司可视化BASIC语言脚本。VBS是系统内置的不需要下载任何软件即可开发。</p>
 <a id="more"></a>
